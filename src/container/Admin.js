@@ -11,7 +11,11 @@ import {
 } from "../store/Food";
 import * as React from "react";
 import Header from "../component/Nav";
-
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import axios from "axios";
 import {
   Modal,
@@ -26,6 +30,7 @@ import {
 } from "reactstrap";
 import { setUser } from "../store/global";
 import { useNavigate } from "react-router-dom";
+import { ListOrder } from "../component/ListOrder";
 
 export const AdminPage = () => {
   const [modal, setModal] = React.useState(false);
@@ -39,14 +44,17 @@ export const AdminPage = () => {
     categories: "",
   });
 
-
-
+  const username = useSelector((state) => state.global.user.username)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnChange = (e) => {
     setListFood({ ...listFood, [e.target.name]: e.target.value });
   };
+  const [value, setValue] = React.useState('1');
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   // const foods = useSelector((state) => state.foods.foods);
   const handleToggle = () => {
     setFoodEdit({});
@@ -113,20 +121,42 @@ export const AdminPage = () => {
     <>
       <Header />
       <div style={{ paddingLeft: 30 }}>
-        <h3> Admin page</h3>
-        <Button onClick={handleLogout}>Logout</Button>
-        <br></br>
+        <div class="container">
+          <div class="row">
 
-        <Button color="primary" onClick={handleClickCreate}>
-          {" "}
-          Add New
-        </Button>
-        <ListFoodAdmin
+            <h3> Admin page <h6> Welcome {username},      <u onClick={handleLogout} style={{color: "red"}}>Logout</u></h6></h3>  
+     
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+      <TabContext value={value}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChange} aria-label="">
+            <Tab label="List Food" value="1" />
+            <Tab label="List Order" value="2" />
+           
+          </TabList>
+        </Box>
+        <TabPanel value="1">     <ListFoodAdmin
           setModal={setModal}
           setFoodEdit={setFoodEdit}
           onDelete={handleDelete}
           onUpload={handleUploadImage}
-        />
+          onCreate={handleClickCreate}
+        /></TabPanel>
+        <TabPanel value="2">
+
+          <ListOrder />
+        </TabPanel>
+       
+      </TabContext>
+    </Box>
+        
+            <br></br>
+
+          
+          </div>
+        </div>
+
+   
       </div>
       <Modal isOpen={modal} toggle={handleToggle}>
         <ModalHeader>Add New Food</ModalHeader>
@@ -200,7 +230,7 @@ export const AdminPage = () => {
                 value={listFood.categories}
                 onChange={handleOnChange}
               >
-                <option hidden  value="" >
+                <option hidden value="">
                   --Choose and option--
                 </option>
                 <option value={"Vegetable"}>Vegetable</option>

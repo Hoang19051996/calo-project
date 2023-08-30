@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Province } from "../component/Province";
 import { addNewOrder } from "../store/Food";
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 export const CartDetail = () => {
   const [count, setCount] = useState(1);
   const [street, setStreet] = useState("");
@@ -14,7 +14,9 @@ export const CartDetail = () => {
   const commune = useSelector((state) => state.foods.commune);
   const dispatch = useDispatch();
   console.log("cartItem",cartItem )
+  const [modal, setModal] = useState(false);
 
+  const toggle = () => setModal(!modal);
   var sumPrice = useSelector((state) => state.foods.totalPrice);
   sumPrice = sumPrice.toLocaleString("vi", {
     style: "currency",
@@ -23,23 +25,20 @@ export const CartDetail = () => {
 
   const navigate = useNavigate();
 
-  console.log("sumPrice", sumPrice);
-  console.log("province", province);
-  console.log("district", district);
-  console.log("commune", commune);
 
-  const handleAddOrder = () => {
+  const handleAddOrder = async () => {
     const newOrder = {
       id: crypto.randomUUID(),
-      foodName: cartItem.map(((cart) => { <><ul key={cart.id}> <li> Name : {cart.foodName}</li></ul> </>})),
-      totalPrice: parseInt(sumPrice),
+      foodName: cartItem.map((cart) => cart.foodName),
+      totalPrice: sumPrice,
       street: street,
       province: province,
       district : district,
       commune : commune,
     };
  
-    dispatch(addNewOrder(newOrder));
+    await dispatch(addNewOrder(newOrder));
+    window.location.href = "/combo";
   }
   return (
     <>
@@ -168,7 +167,7 @@ export const CartDetail = () => {
                           type="button"
                           class="btn btn-dark btn-block btn-lg"
                           data-mdb-ripple-color="dark"
-                          onClick={() => handleAddOrder()}
+                          onClick={toggle}
                         >
                           Register
                         </button>
@@ -181,6 +180,22 @@ export const CartDetail = () => {
           </div>
         </div>
       </section>
+
+
+      <Modal isOpen={modal} toggle={toggle} >
+        <ModalHeader toggle={toggle}>Please confirm</ModalHeader>
+        <ModalBody>
+        Are you sure you want to order these products?
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={()=> handleAddOrder()}>
+          Confirm 
+          </Button>
+          <Button color="secondary" onClick={toggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
     </>
   );
 };

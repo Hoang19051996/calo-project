@@ -49,14 +49,18 @@ const foodsSlice = createSlice({
         state.status = "succeeded";
         state.foods = action.payload;
       })
+      .addCase(fetchOrders.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.order = action.payload;
+      })
       .addCase(fetchFoods.pending, (state) => {
         state.status = "loading";
       })
       .addCase(addNewFoods.fulfilled, (state, action) => {
-        state.order.push(action.payload);
+        state.foods.push(action.payload);
       })
       .addCase(addNewOrder.fulfilled, (state, action) => {
-        state.foods.push(action.payload);
+        state.order.push(action.payload);
       })
       .addCase(updateFood.fulfilled, (state, action) => {
         const foodUpate = state.foods.find(
@@ -89,6 +93,12 @@ export const fetchFoods = createAsyncThunk("foods/fetchFoods", async () => {
   const response = await axios.get(URL_API_FOOD);
   return response.data;
 });
+
+export const fetchOrders = createAsyncThunk("foods/fetchOrders", async () => {
+  const response = await axios.get(URL_API_ORDER);
+  return response.data;
+});
+
 
 export const addNewFoods = createAsyncThunk(
   "foods/addNewFoods",
