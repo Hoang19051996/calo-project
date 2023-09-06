@@ -12,18 +12,6 @@
      "image": "https://upcdn.io/12a1yXH/image/uploads/2023/08/25/4mDHAKWp3u-chi-so-bmi-la-gi-cong-thuc-tinh-beo-phi-qua-chi-so-bmi-202206290629154353.jpg.crop"
     },
     {
-     "createdAt": "2023-08-17T08:58:38.292Z",
-     "foodName": "Eggplant",
-     "calo": 24,
-     "proteins": 1,
-     "carbs": 6,
-     "fat": 0,
-     "categories": "Vegetable",
-     "images": "images 3",
-     "id": "3",
-     "image": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/21/4mDrdisWE1-QCQN_Homepage_Mobile.jpg"
-    },
-    {
      "createdAt": "2023-08-17T14:26:52.189Z",
      "foodName": "Atiso",
      "calo": 47,
@@ -727,9 +715,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFEvGB52-Gluten Free & Dairy Free Diet.jpg",
      "price": 45000,
      "id": "88",
-     "date": "Weekdays"
+     "date": "Weekdays",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
 
- 
     },
     {
      "createdAt": "2023-08-25T11:12:30.080Z",
@@ -742,7 +730,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFDi3e7A-High Protein Low Carb .jpg",
      "price": 45000,
      "id": "89",
-     "date": "Weekdays"
+     "date": "Weekdays",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-25T17:21:56.173Z",
@@ -755,7 +745,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFDdZFDn-High Protein Weight Loss.jpg",
      "price": 45000,
      "id": "90",
-     "date": "Weekdays"
+     "date": "Weekdays",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-25T02:25:26.577Z",
@@ -768,7 +760,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFDa1S6h-PCOS Diet.jpg",
      "price": 45000,
      "id": "91",
-     "date": "Weekdays"
+     "date": "Weekdays",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-25T03:32:20.929Z",
@@ -781,7 +775,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFDW1PQj-Pescatarian Diet.jpg",
      "price": 45000,
      "id": "92",
-     "date": "Weekdays"
+     "date": "Weekdays",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-24T19:01:50.387Z",
@@ -794,7 +790,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFCb7q4a-smoothie-healthy-diet.jpg",
      "price": 35000,
      "id": "93",
-     "date": "Weekend"
+     "date": "Weekend", 
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-25T17:50:07.561Z",
@@ -807,7 +805,10 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFCGYm2K-glass-dessert-with-straw-candy.jpg",
      "price": 35000,
      "id": "94",
-     "date": "Weekend"
+     
+     "date": "Weekend", 
+     "description": "Includes: Vegetable, oils, nuts, seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
     },
     {
      "createdAt": "2023-08-25T06:56:04.382Z",
@@ -820,6 +821,9 @@
      "images": "https://upcdn.io/12a1yXH/raw/uploads/2023/08/25/4mDFCL4PBR-Vegetarian Diet.jpg",
      "price": 35000,
      "id": "95",
-     "date": "Weekend"
+     "date": "Weekend",
+     "description": "Includes: Vegetable, oils, nuts and seeds, eggs and soya beans. The total meal value is only about 600 to 700 calories, providing enough protein for the daily menu."
+
+     
     }
    ]
