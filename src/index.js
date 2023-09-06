@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import CalculatorCalo from './CalculatorCalo'
+import App, { Bmi } from './container/Bmi';
 import Activities from './Activities'
-import DailyCalo from './DailyCalo'
+import DailyCalo from './container/DailyCalo'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
@@ -20,6 +19,12 @@ import { FreshFruit } from './container/FreshFruit';
 import { Meat } from './container/Meat';
 import { ComboPage } from './container/ComboPage';
 import { CartDetail } from './container/CartDetail';
+import { ContactUs } from './container/ContactUs';
+import { Juice } from './container/Juice';
+import { Vegetable } from './container/Vegetable';
+import { FastFood } from './container/FastFood';
+import { Others } from './container/Others';
+import CalculatorCalo from './container/CalculatorCalo';
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 
@@ -34,7 +39,7 @@ const router = createBrowserRouter ( [
   },
   {
     path: '/bmi',
-    element: <App />
+    element: <Bmi />
   },
   {
     path:'/calculatorcalo',
@@ -72,6 +77,27 @@ const router = createBrowserRouter ( [
     path:'/cart-detail',
     element:    <CartDetail />
   },
+  ,
+  {
+    path:'/contact-us',
+    element:    <ContactUs />
+  },
+  {
+    path:'/juice',
+    element:    <Juice />
+  },
+  {
+    path:'/vegetable',
+    element:    <Vegetable />
+  },
+  {
+    path:'/fast-food',
+    element:    <FastFood />
+  },
+  {
+    path:'/others',
+    element:    <Others />
+  }
 ])
 root.render(
 

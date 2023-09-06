@@ -1,7 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconButton } from "@mui/material";
 
-import { styled } from "@mui/material/styles";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
@@ -39,19 +36,15 @@ export function Header(args) {
     <div>
       <Navbar {...args} expand className="navbar">
         <NavbarBrand href="/" className="navbarBrand">
-          <i class="fa-solid fa-seedling"></i>
+          <i class="fa-solid fa-seedling" ></i>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            <NavLink>
-              <Link to="/" className="navbarBrand">
-                Home &nbsp;
-              </Link>
-            </NavLink>
+        
 
             <NavLink>
-              <Link to="/" className="navbarBrand">
+              <Link to="/bmi" className="navbarBrand">
                 BMI &nbsp;
               </Link>
             </NavLink>
@@ -62,7 +55,7 @@ export function Header(args) {
               </Link>
             </NavLink>
 
-            <NavLink className="navbarBrand">
+            <NavLink >
               <Link to="/dailycalo" className="navbarBrand">
                 Daily Calorie
               </Link>

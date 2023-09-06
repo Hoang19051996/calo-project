@@ -1,4 +1,4 @@
-import "./App.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -16,8 +16,8 @@ import {
 } from "reactstrap";
 import Select from "react-select";
 import SemiCircleProgressBar from "react-progressbar-semicircle";
-import { ListMeal } from "./component/ListMeal";
-import Header from "./component/Nav";
+import { ListMeal } from "../component/ListMeal";
+import Header from "../component/Nav";
 import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
 

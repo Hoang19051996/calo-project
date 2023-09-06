@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect } from "react";
 import {
@@ -16,9 +14,9 @@ import { useState } from "react";
 import RangeSlider from "react-bootstrap-range-slider";
 
 import "react-circular-progressbar/dist/styles.css";
-import Header from "./component/Nav";
+import Header from "../component/Nav";
 import { useDispatch } from "react-redux";
-import {setTotalCaloDaily} from "./store/Food"
+import {setTotalCaloDaily} from "../store/Food"
 import { useNavigate } from "react-router-dom";
 // const MyComponent = ({ title, min, max }) => {
 //   const [value, setValue] = useState(20);

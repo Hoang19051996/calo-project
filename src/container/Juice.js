@@ -4,13 +4,13 @@ import Header from "../component/Nav";
 
 import { ListProductByCate } from "../component/ListProductByCate";
 
-export const FreshFruit = () => {
+export const Juice = () => {
 
 
   return (
     <>
       <Header />
-      <ListProductByCate cate="FreshFruit"/>
+      <ListProductByCate cate="Juice"/>
       <Footer />
     </>
   );

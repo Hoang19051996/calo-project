@@ -1,36 +1,42 @@
 import { Container, Row } from "reactstrap";
-import {Header} from "../component/Nav";
+import { Header } from "../component/Nav";
 import { margin, padding, width } from "@mui/system";
 import Meat from "../Assets/Meat.jpg";
 import Rice from "../Assets/Rice.jpg";
 import BMI_1 from "../Assets/bmi/BMI_1.jpg";
 import healthybanner from "../Assets/healthy fruits and vegetables green.jpg";
 import { Link, useNavigate } from "react-router-dom";
-import  {Footer}  from "../component/Footer";
-<div class="col-md-2">
-  {" "}
-  <a>
-    <figure>
-      <img
-        style={{ borderRadius: 25 }}
-        alt="Fresh Fruit"
-        width={"100%"}
-        src={Meat}
-      />
-    </figure>
-    <span>
-      <span className="sixItems">
-        <span>Meat</span>
-      </span>
-    </span>
-  </a>
-</div>;
+import { Footer } from "../component/Footer";
+
 export const HomePage = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="home_banner">
+      <div className="home-banner">
         <Header />
+
+        <div class="col-lg-5 text-home ">
+          <h3 class="fw-light text-white animated slideInRight">
+            Natural &amp; Organic
+          </h3>
+          <h1 class="display-4 text-white animated slideInRight">
+            Healthy <span class="fw-light text-dark" >Food</span> <br />
+            For Healthy Life
+          </h1>
+          <p class="text-white mb-4 animated slideInRight">
+          An eating plan that helps promote health and manage your weight includes a variety of healthy foods.  Enjoy weekly meals with no hassle, easy order and receive fresh package from anywhere.
+
+          </p>
+          <p href="" class="btn btn-dark py-2 px-4 me-3 animated slideInRight" onClick={() => navigate('/combo')}>
+            Explore Now
+          </p>
+          <p
+            href=""
+            class="btn btn-outline-dark py-2 px-4 animated slideInRight" onClick={() => navigate('/contact-us')}
+          >
+            Contact Us
+          </p>
+        </div>
       </div>
       <br></br>
       <div class="container-fluid">
@@ -53,13 +59,13 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2"  onClick={() => navigate("/juice")}>
             {" "}
             <a>
               <figure>
                 <img
                   style={{ borderRadius: 25 }}
-                  alt="Fresh Fruit"
+                  alt="Juice"
                   width={"100%"}
                   src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_09.png.pagespeed.ic.99YN7SXxUp.webp"
                 />
@@ -77,7 +83,7 @@ export const HomePage = () => {
               <figure>
                 <img
                   style={{ borderRadius: 25 }}
-                  alt="Fresh Fruit"
+                  alt="Fresh Vegetable"
                   width={"100%"}
                   src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_07_1.png.pagespeed.ic.5xo_ENIkKD.webp"
                 />
@@ -90,13 +96,13 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-2"  onClick={() => navigate("/fast-food")}>
             {" "}
             <a>
               <figure>
                 <img
                   style={{ borderRadius: 25 }}
-                  alt="Fresh Fruit"
+                  alt="Fast Food"
                   width={"100%"}
                   src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_15_1.jpg.pagespeed.ic.EoBU6_sFBt.webp"
                 />
@@ -109,13 +115,13 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-2"  onClick={() => navigate("/meat")}>
             {" "}
             <a>
               <figure>
                 <img
                   style={{ borderRadius: 25 }}
-                  alt="Fresh Fruit"
+                  alt="Meat"
                   width={"100%"}
                   src={Meat}
                 />
@@ -127,20 +133,20 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2"  onClick={() => navigate("/others")}>
             {" "}
             <a>
               <figure>
                 <img
                   style={{ borderRadius: 25 }}
-                  alt="Fresh Fruit"
+                  alt="Others"
                   width={"100%"}
                   src={Rice}
                 />
               </figure>
               <span>
                 <span className="sixItems">
-                  <span>Rice</span>
+                  <span>Others</span>
                 </span>
               </span>
             </a>
@@ -219,56 +225,55 @@ export const HomePage = () => {
           }}
         >
           <div class="row">
-          <div className="col-md-6">
-            <div class="flex-latest-blog">
-              <div>
-                <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog3_1.jpg.pagespeed.ic.1P1YpBYA1T.webp" />
-              </div>
-              <div class="blog-post-info">
-                <h4 class="post-title">
-                  6 great benefits of eating fresh fruit daily
-                </h4>
+            <div className="col-md-6">
+              <div class="flex-latest-blog">
                 <div>
-                  <div>Organic</div>
-                  <div>
-                    <span>30 Sep</span>
-                  </div>
+                  <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog3_1.jpg.pagespeed.ic.1P1YpBYA1T.webp" />
                 </div>
-                <p>
-                  Fruit has a lot of nutrients, fiber and vitamins so it will
-                  help you be physically and mentally healthy... 
-                </p>
+                <div class="blog-post-info">
+                  <h4 class="post-title">
+                    6 great benefits of eating fresh fruit daily
+                  </h4>
+                  <div>
+                    <div>Organic</div>
+                    <div>
+                      <span>30 Sep</span>
+                    </div>
+                  </div>
+                  <p>
+                    Fruit has a lot of nutrients, fiber and vitamins so it will
+                    help you be physically and mentally healthy...
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-6">
-            <div class="flex-latest-blog">
-              <div>
-                <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog2.jpg.pagespeed.ic.mXjRQFVqfO.webp" />
-              </div>
-              <div class="blog-post-info">
-                <h4 class="post-title">
-                Benefits of bananas and peaches
-                </h4>
+            <div className="col-md-6">
+              <div class="flex-latest-blog">
                 <div>
-                  <div>Organic</div>
-                  <div>
-                    <span>30 Sep</span>
-                  </div>
+                  <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog2.jpg.pagespeed.ic.mXjRQFVqfO.webp" />
                 </div>
-                <p>
-                Bananas are very popular with Vietnamese people. Bananas are year-round, easy to preserve... 
-                </p>
+                <div class="blog-post-info">
+                  <h4 class="post-title">Benefits of bananas and peaches</h4>
+                  <div>
+                    <div>Organic</div>
+                    <div>
+                      <span>30 Sep</span>
+                    </div>
+                  </div>
+                  <p>
+                    Bananas are very popular with Vietnamese people. Bananas are
+                    year-round, easy to preserve...
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
       <br></br>
       <br></br>
-     
-     <Footer />
+
+      <Footer />
     </>
   );
 };
