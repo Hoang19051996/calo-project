@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../component/Footer";
 import Header from "../component/Nav";
+import BreadCrumbs from "../component/Breadcrumbs";
 
 export const ContactUs = () => {
     const navigate = useNavigate();
   return (
     <>
     <Header />
+    <br></br>
+    <div style={{paddingLeft : "5%"}}>
+        <BreadCrumbs page="Contact Us" />
+        </div>
       <div class="container my-5">
         <div class="row justify-content-center">
           <div class="col-lg-9 font-family">

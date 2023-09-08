@@ -1,0 +1,21 @@
+{
+    "title": "Chuyển đổi đa ngôn ngữ với react-i18next",
+    "title-admin": "Trang quản trị",
+    "welcome":"Xin chào",
+    "logout":"Đăng xuất",
+    "calorie_calculator":"Tính toán Calo",
+    "daily_calorie" : "Kiểm soát Calo", 
+    "gallery": "Thư viện",
+    "list_food": "Danh sách thực phẩm",
+    "list_order": "Danh sách đơn hàng",
+    "add_new": "Thêm thực phẩm",
+    "dessert": "Thực phẩm",
+    "protein": "Chất đạm",
+    "carbs": "Tinh bột",
+    "fat": "Chất béo",
+    "edit": "Sửa",
+    "delete": "Xoá",
+    "image": "Hình ảnh",
+    "search": "Tìm kiếm",
+    "row": "Hàng mỗi trang"
+}

@@ -16,7 +16,7 @@ export const ListMeal = ( {name , calo , carb, protein, fat , onDelete , id}) =>
             <div style={{display: "flex" , columnGap : 8}}>
     
      
-            <Button color="warning"  >Edit</Button> 
+        
            
           
             <Button color="danger" onClick={() => onDelete(id)}>Delete</Button>

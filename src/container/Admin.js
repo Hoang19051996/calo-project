@@ -11,11 +11,11 @@ import {
 } from "../store/Food";
 import * as React from "react";
 import Header from "../component/Nav";
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 import axios from "axios";
 import {
   Modal,
@@ -31,6 +31,8 @@ import {
 import { setUser } from "../store/global";
 import { useNavigate } from "react-router-dom";
 import { ListOrder } from "../component/ListOrder";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const AdminPage = () => {
   const [modal, setModal] = React.useState(false);
@@ -43,14 +45,18 @@ export const AdminPage = () => {
     fat: 0,
     categories: "",
   });
-
-  const username = useSelector((state) => state.global.user.username)
+  const { t } = useTranslation("translation");
+  const changeLanguage = (e) => {
+    const languageValue = e.target.value;
+    i18n.changeLanguage(languageValue);
+  };
+  const username = useSelector((state) => state.global.user.username);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnChange = (e) => {
     setListFood({ ...listFood, [e.target.name]: e.target.value });
   };
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -120,43 +126,48 @@ export const AdminPage = () => {
   return (
     <>
       <Header />
+      <br></br>
+
       <div style={{ paddingLeft: 30 }}>
         <div class="container">
           <div class="row">
+            <h3>
+              {t("title_admin")}{" "}
+              <h6>
+                {" "}
+                {t("welcome")} {username},{" "}
+                <u onClick={handleLogout} style={{ color: "red" }}>
+                  {t("logout")}
+                </u>
+              </h6>
+            </h3>
 
-            <h3> Admin page <h6> Welcome {username},      <u onClick={handleLogout} style={{color: "red"}}>Logout</u></h6></h3>  
-     
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-      <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="">
-            <Tab label="List Food" value="1" />
-            <Tab label="List Order" value="2" />
-           
-          </TabList>
-        </Box>
-        <TabPanel value="1">     <ListFoodAdmin
-          setModal={setModal}
-          setFoodEdit={setFoodEdit}
-          onDelete={handleDelete}
-          onUpload={handleUploadImage}
-          onCreate={handleClickCreate}
-        /></TabPanel>
-        <TabPanel value="2">
+            <Box sx={{ width: "100%", typography: "body1" }}>
+              <TabContext value={value}>
+                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <TabList onChange={handleChange} aria-label="">
+                    <Tab label={t("list_food")} value="1" />
+                    <Tab label={t("list_order")} value="2" />
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  <ListFoodAdmin
+                    setModal={setModal}
+                    setFoodEdit={setFoodEdit}
+                    onDelete={handleDelete}
+                    onUpload={handleUploadImage}
+                    onCreate={handleClickCreate}
+                  />
+                </TabPanel>
+                <TabPanel value="2">
+                  <ListOrder />
+                </TabPanel>
+              </TabContext>
+            </Box>
 
-          <ListOrder />
-        </TabPanel>
-       
-      </TabContext>
-    </Box>
-        
             <br></br>
-
-          
           </div>
         </div>
-
-   
       </div>
       <Modal isOpen={modal} toggle={handleToggle}>
         <ModalHeader>Add New Food</ModalHeader>

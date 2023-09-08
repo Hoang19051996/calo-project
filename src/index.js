@@ -25,6 +25,8 @@ import { Vegetable } from './container/Vegetable';
 import { FastFood } from './container/FastFood';
 import { Others } from './container/Others';
 import CalculatorCalo from './container/CalculatorCalo';
+import { Blog } from './container/Blog';
+import "./i18n/i18n"
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
 
 
@@ -97,6 +99,10 @@ const router = createBrowserRouter ( [
   {
     path:'/others',
     element:    <Others />
+  },
+  {
+    path:'/blog-6-great',
+    element:    <Blog />
   }
 ])
 root.render(

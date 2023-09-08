@@ -15,6 +15,7 @@ import { Upload } from "./Upload";
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "reactstrap";
+import { useTranslation } from "react-i18next";
 
 export function ListFoodAdmin({
   setFoodEdit,
@@ -30,7 +31,7 @@ export function ListFoodAdmin({
   const foodFilter = foods.filter((food) =>
     food.foodName.toLowerCase().includes(searchText.toLowerCase())
   );
-
+  console.log("foodFilter", foodFilter);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFoods());
@@ -52,8 +53,14 @@ export function ListFoodAdmin({
     setPage(0);
   };
 
-  console.log({ foods });
+  const handleSortAtoZ = () => {
+    foodFilter.sort((a, b) =>
+    a.foodName > b.foodName ? 1 : -1,
+  );
+  console.log("foodFilter", foodFilter);
+  }
 
+  const { t } = useTranslation("translation");
   return (
     <div ref={parent}>
       <br></br>
@@ -61,26 +68,28 @@ export function ListFoodAdmin({
       <Root sx={{ width: "80%", maxWidth: "100%", paddingLeft: "10%" }}>
         <Button color="primary" onClick={() => onCreate()}>
           {" "}
-          Add New
+          {t("add_new")}
         </Button>
+
+        <Button onClick={() => handleSortAtoZ()}> Sort A-Z</Button>
         <input
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          placeholder="Search"
+          placeholder={t("search")}
           style={{ width: "30%" , padding: "2px" , borderRadius: "10px" }}
         />
 
         <table aria-label="custom pagination table">
           <thead>
             <tr>
-              <th>Dessert</th>
+              <th>{t("dessert")}</th>
               <th>Calories</th>
-              <th>Protein</th>
-              <th>Carbs</th>
-              <th>Fat</th>
-              <th>Edit</th>
-              <th>Delete</th>
-              <th>Image</th>
+              <th>{t("protein")}</th>
+              <th>{t("carbs")}</th>
+              <th>{t("fat")}</th>
+              <th>{t("edit")}</th>
+              <th>{t("delete")}</th>
+              <th>{t("image")}</th>
             </tr>
           </thead>
           <tbody>
@@ -147,7 +156,7 @@ export function ListFoodAdmin({
                 page={page}
                 slotProps={{
                   select: {
-                    "aria-label": "rows per page",
+                    "aria-label": "Row per page"
                   },
                   actions: {
                     showFirstButton: true,

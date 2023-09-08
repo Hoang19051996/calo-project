@@ -22,6 +22,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { DetailProduct } from "../component/DetailProduct";
 import { SideBar } from "../component/SideBar";
 import { fontWeight } from "@mui/system";
+import BreadCrumbs from "../component/Breadcrumbs";
 
 export const ComboPage = () => {
   const [value, setValue] = React.useState("1");
@@ -67,7 +68,10 @@ export const ComboPage = () => {
   return (
     <>
       <Header />
-
+    <br></br>
+    <div style={{paddingLeft : "5%"}}>
+        <BreadCrumbs page="Menu Daily" />
+        </div>
       <Box
         sx={{ width: "100%", typography: "body1" }}
         centered

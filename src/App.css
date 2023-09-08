@@ -34,19 +34,30 @@
   font-size: large;
 }
 .bmi-left {
-  height: 450px;
+  height: 480px;
   /* background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); */
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     160deg,
     #336a29 10%,
     #498428 20%,
     #80b155,
     #c1d95c
-  );
+  ); */
+
+  background-image: url(./Assets/Banner_Healthy02.jpg);
+  background-size: cover;
+
 
   /* #EAEF9D #C1D95C #80B155 #498428 #336A29 */
 }
-
+.table-dailycalo{
+  background-color: transparent;
+  border: 1px solid black;
+}
+.table-dailycalo td {
+  background-color: transparent;
+  border: 1px solid black;
+}
 .activities {
   background-color: #e1e9d2;
   display: flex;
@@ -140,8 +151,8 @@
 }
 
 .navbar {
-  background-color: transparent;
-
+ 
+  background-color: #a1c547;
 
 }
 
@@ -562,3 +573,24 @@ color: #336a29;
 .font-family{
   font-family: "Poppins", sans-serif;
 }
+
+
+:root{
+  /* color type A */
+  --line_color : #555555 ;
+  --back_color : #FFECF6  ;
+
+  /* color type B */
+  /* --line_color : #1b1919 ;
+  --back_color : #E9ECFF  ; */
+
+  /* color type C */
+  /* --line_color : #00135C ;
+  --back_color : #DEFFFA  ; */
+}
+
+
+
+
+
+

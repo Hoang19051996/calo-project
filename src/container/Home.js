@@ -13,7 +13,7 @@ export const HomePage = () => {
   return (
     <>
       <div className="home-banner">
-        <Header />
+        <Header  transparent="transparent"/>
 
         <div class="col-lg-5 text-home ">
           <h3 class="fw-light text-white animated slideInRight">
@@ -225,9 +225,9 @@ export const HomePage = () => {
           }}
         >
           <div class="row">
-            <div className="col-md-6">
+            <div className="col-md-6" >
               <div class="flex-latest-blog">
-                <div>
+                <div onClick={() => navigate("/blog-6-great")}>
                   <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog3_1.jpg.pagespeed.ic.1P1YpBYA1T.webp" />
                 </div>
                 <div class="blog-post-info">
@@ -249,7 +249,7 @@ export const HomePage = () => {
             </div>
             <div className="col-md-6">
               <div class="flex-latest-blog">
-                <div>
+                <div onClick={() => navigate("/blog-6-great")}>
                   <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog2.jpg.pagespeed.ic.mXjRQFVqfO.webp" />
                 </div>
                 <div class="blog-post-info">

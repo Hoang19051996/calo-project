@@ -1,0 +1,27 @@
+{
+    "title": "Translate your react-app with react-i18next",
+    "title_admin": "Admin Page",
+    "welcome":"Welcome",
+    "logout":"Log out",
+    "calorie_calculator":"Calorie Calculator",
+    "daily_calorie" : "Daily Calorie", 
+    "gallery": "Gallery",
+    "list_food": "List Food",
+    "list_order": "List Order",
+    "add_new": "Add New",
+    "dessert": "Dessert",
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
+    "edit": "Edit",
+    "delete": "Delete",
+    "image": "Image",
+    "search": "Search",
+    "row": "Rows per page"
+
+
+
+
+    
+
+}

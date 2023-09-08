@@ -5,7 +5,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import EN from "../Assets/ENG.jpg";
+import VN from "../Assets/VN.png";
 import {
   Collapse,
   Navbar,
@@ -22,9 +23,11 @@ import {
   Button,
 } from "reactstrap";
 import Badge from '@mui/material/Badge';
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n/i18n";
 
 
-export function Header(args) {
+export function Header({transparent}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -32,9 +35,19 @@ export function Header(args) {
   const cartItem = useSelector((state) => state.foods.cartItem);
   const navigate = useNavigate();
 
+  const { t } = useTranslation("translation");
+  const onClickVN = () => {
+   
+    i18n.changeLanguage("vie");
+  }
+  const onClickEN = () => {
+   
+    i18n.changeLanguage("eng");
+  }
+
   return (
     <div>
-      <Navbar {...args} expand className="navbar">
+      <Navbar  expand className="navbar" style={{backgroundColor: `${transparent}`}}>
         <NavbarBrand href="/" className="navbarBrand">
           <i class="fa-solid fa-seedling" ></i>
         </NavbarBrand>
@@ -51,19 +64,19 @@ export function Header(args) {
 
             <NavLink>
               <Link to="/calculatorcalo" className="navbarBrand">
-                Calorie Calculator &nbsp;
+               {t("calorie_calculator")} &nbsp;
               </Link>
             </NavLink>
 
             <NavLink >
               <Link to="/dailycalo" className="navbarBrand">
-                Daily Calorie
+              {t("daily_calorie")}
               </Link>
             </NavLink>
 
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                <Link className="navbarBrand">Gallery</Link>
+                <Link className="navbarBrand"> {t("gallery")}</Link>
               </DropdownToggle>
               <DropdownMenu right className="navbarBrand">
                 <DropdownItem className="navbarBrand">Food</DropdownItem>
@@ -81,8 +94,11 @@ export function Header(args) {
             </Badge>
           </div>
           <Link to="/admin" className="navbarBrand">
-            Admin Page
+          {t("title-admin")}
           </Link>
+        
+         <img src={EN} width={"30px"} onClick={() => onClickEN()}/> &nbsp;
+         <img src={VN} width={"30px"} onClick={() => onClickVN()}/>
         </Collapse>
       </Navbar>
     </div>

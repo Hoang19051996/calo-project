@@ -1,4 +1,3 @@
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect } from "react";
 import { useState } from "react";
@@ -20,6 +19,7 @@ import { ListMeal } from "../component/ListMeal";
 import Header from "../component/Nav";
 import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
+import BreadCrumbs from "../component/Breadcrumbs";
 
 const URL = "https://64ccc3c12eafdcdc851a433f.mockapi.io/calories";
 let nextId = 1;
@@ -133,6 +133,9 @@ function DailyCalo() {
     <>
       <Header />
       <br></br>
+      <div style={{paddingLeft : "5%"}}>
+        <BreadCrumbs page="Daily Calorie" />
+        </div>
       <Container>
         <Row>
           <Col sm={2}></Col>
@@ -176,9 +179,7 @@ function DailyCalo() {
               </div>
               <div style={{ width: 150, marginRight: 15 }}>
                 <span>Protein</span>
-                <Progress
-                  value={(totalProtein /  valueProteinEachDay ) * 100}
-                />
+                <Progress value={(totalProtein / valueProteinEachDay) * 100} />
                 <h6>
                   {totalProtein}/
                   {isNaNValueProteinEachDay ? 0 : valueProteinEachDay}g
@@ -198,95 +199,22 @@ function DailyCalo() {
         <Row>
           <Col sm={2}></Col>
           <Col sm={7}>
-            <div class="accordion" id="accordionExample">
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                  <h5 class="mb-0">
-                    <button
-                      class="btn btn-link"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      Add food to your breakfast
-                    </button>
-                  </h5>
-                </div>
-
-                <div
-                  id="collapseOne"
-                  class="collapse show"
-                  aria-labelledby="headingOne"
-                  data-parent="#accordionExample"
-                >
-                  <div class="card-body">
-                    <Button onClick={toggle}>Add Food</Button>
-                    {listMeal.map((meal) => (
-                      <ListMeal
-                        key={meal.id}
-                        id={meal.id}
-                        name={meal.name}
-                        calo={meal.calo}
-                        carb={meal.carb}
-                        protein={meal.protein}
-                        fat={meal.fat}
-                        onDelete={handleDeleteMeal}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <button
-                      class="btn btn-link collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Add food to your lunch
-                    </button>
-                  </h5>
-                </div>
-                <div
-                  id="collapseTwo"
-                  class="collapse"
-                  aria-labelledby="headingTwo"
-                  data-parent="#accordionExample"
-                >
-                  <div class="card-body">Lunch</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                    <button
-                      class="btn btn-link collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      Add food to your dinner
-                    </button>
-                  </h5>
-                </div>
-                <div
-                  id="collapseThree"
-                  class="collapse"
-                  aria-labelledby="headingThree"
-                  data-parent="#accordionExample"
-                >
-                  <div class="card-body">Dinner</div>
-                </div>
-              </div>
-            </div>
+            <Button onClick={toggle} outline color="success"> <i class="fa-solid fa-plus"></i> Add Food</Button>
+            {listMeal.map((meal) => (
+              <ListMeal
+                key={meal.id}
+                id={meal.id}
+                name={meal.name}
+                calo={meal.calo}
+                carb={meal.carb}
+                protein={meal.protein}
+                fat={meal.fat}
+                onDelete={handleDeleteMeal}
+              />
+            ))}
+           
+        
+            
           </Col>
           <Col sm={3}></Col>
         </Row>
@@ -296,7 +224,7 @@ function DailyCalo() {
         <ModalBody>
           <Select options={options} autoFocus={true} onChange={handleChange} />
           <div className="mt-4">
-            {selected && <>You've selected {selected.value}</>}
+            {selected && <>The calories of dish you've selected was : <b> {selected.value} </b></>}
           </div>
         </ModalBody>
         <ModalFooter>
