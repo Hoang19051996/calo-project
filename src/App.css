@@ -156,6 +156,11 @@
 
 }
 
+.navbar :hover{
+  color: white;
+  text-decoration: none;
+  animation-delay: 1000ms;
+}
 .navbarBrand {
   color: #336a29;
   padding-left: 30;
@@ -163,8 +168,10 @@
   opacity: 120%;
   text-decoration: none;
   font-weight: bold;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
+
+
 
 .side-bar{
   text-align: left

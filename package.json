@@ -40,7 +40,7 @@
     "reactstrap": "^9.2.0",
     "solid-collapse": "^1.1.0",
     "sort-by": "^1.2.0",
-    "styled-components": "^6.0.7",
+    "styled-components": "^5.3.1",
     "uploader": "^3.48.0",
     "web-vitals": "^2.1.4"
   },

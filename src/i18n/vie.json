@@ -1,6 +1,6 @@
 {
     "title": "Chuyển đổi đa ngôn ngữ với react-i18next",
-    "title-admin": "Trang quản trị",
+    "title_admin": "Trang quản trị",
     "welcome":"Xin chào",
     "logout":"Đăng xuất",
     "calorie_calculator":"Tính toán Calo",
