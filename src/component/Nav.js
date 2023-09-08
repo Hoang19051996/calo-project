@@ -80,6 +80,7 @@ export function Header({ transparent }) {
                 <Link className="navbarBrand"> {t("gallery")}</Link>
               </div>
               <div>
+                <div className="d-flex" >
                 <div
                   onClick={() => navigate("/cart-detail")}
                   style={{ cursor: "pointer" }}
@@ -91,12 +92,15 @@ export function Header({ transparent }) {
                   >
                     <ShoppingCartIcon />
                   </Badge>
+                  </div>
+                  <div>
                   <Link to="/admin" className="navbarBrand">
                     {t("title_admin")}
                   </Link>
                   <img src={EN} width={"30px"} onClick={() => onClickEN()} />{" "}
                   &nbsp;
                   <img src={VN} width={"30px"} onClick={() => onClickVN()} />
+                  </div>
                 </div>
               </div>
             </div>
