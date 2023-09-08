@@ -48,7 +48,7 @@ export function Header({ transparent }) {
           style={{ backgroundColor: `${transparent}` }}
         >
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               {" "}
               <i class="fa-solid fa-seedling"></i>
             </a>
