@@ -66,19 +66,25 @@ export function ListFoodAdmin({
       <br></br>
       <br></br>
       <Root sx={{ width: "80%", maxWidth: "100%", paddingLeft: "10%" }}>
-        <Button color="primary" onClick={() => onCreate()}>
-          {" "}
-          {t("add_new")}
-        </Button>
+       
+       <div class="d-flex justify-content-between">
 
-        <Button onClick={() => handleSortAtoZ()}> Sort A-Z</Button>
-        <input
+       <input
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           placeholder={t("search")}
           style={{ width: "30%" , padding: "2px" , borderRadius: "10px" }}
         />
 
+       <Button color="primary" onClick={() => onCreate()}>
+          {" "}
+          {t("add_new")}
+        </Button>
+
+     
+        
+        </div> 
+    <br></br>
         <table aria-label="custom pagination table">
           <thead>
             <tr>
