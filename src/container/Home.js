@@ -1,5 +1,4 @@
 import { Container, Row } from "reactstrap";
-import { Header } from "../component/Nav";
 import { margin, padding, width } from "@mui/system";
 import Meat from "../Assets/Meat.jpg";
 import Rice from "../Assets/Rice.jpg";
@@ -7,32 +6,39 @@ import BMI_1 from "../Assets/bmi/BMI_1.jpg";
 import healthybanner from "../Assets/healthy fruits and vegetables green.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { Footer } from "../component/Footer";
+import Header from "../component/Nav";
 
 export const HomePage = () => {
   const navigate = useNavigate();
   return (
     <>
       <div className="home-banner">
-        <Header  transparent="transparent"/>
+        <Header transparent="transparent" />
 
         <div class="col-lg-5 text-home ">
           <h3 class="fw-light text-white animated slideInRight">
             Natural &amp; Organic
           </h3>
           <h1 class="display-4 text-white animated slideInRight">
-            Healthy <span class="fw-light text-dark" >Food</span> <br />
+            Healthy <span class="fw-light text-dark">Food</span> <br />
             For Healthy Life
           </h1>
           <p class="text-white mb-4 animated slideInRight">
-          An eating plan that helps promote health and manage your weight includes a variety of healthy foods.  Enjoy weekly meals with no hassle, easy order and receive fresh package from anywhere.
-
+            An eating plan that helps promote health and manage your weight
+            includes a variety of healthy foods. Enjoy weekly meals with no
+            hassle, easy order and receive fresh package from anywhere.
           </p>
-          <p href="" class="btn btn-dark py-2 px-4 me-3 animated slideInRight" onClick={() => navigate('/combo')}>
+          <p
+            href=""
+            class="btn btn-dark py-2 px-4 me-3 animated slideInRight"
+            onClick={() => navigate("/combo")}
+          >
             Explore Now
           </p>
           <p
             href=""
-            class="btn btn-outline-dark py-2 px-4 animated slideInRight" onClick={() => navigate('/contact-us')}
+            class="btn btn-outline-dark py-2 px-4 animated slideInRight"
+            onClick={() => navigate("/contact-us")}
           >
             Contact Us
           </p>
@@ -59,7 +65,7 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2"  onClick={() => navigate("/juice")}>
+          <div class="col-md-2" onClick={() => navigate("/juice")}>
             {" "}
             <a>
               <figure>
@@ -96,7 +102,7 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2"  onClick={() => navigate("/fast-food")}>
+          <div class="col-md-2" onClick={() => navigate("/fast-food")}>
             {" "}
             <a>
               <figure>
@@ -115,7 +121,7 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2"  onClick={() => navigate("/meat")}>
+          <div class="col-md-2" onClick={() => navigate("/meat")}>
             {" "}
             <a>
               <figure>
@@ -133,7 +139,7 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2"  onClick={() => navigate("/others")}>
+          <div class="col-md-2" onClick={() => navigate("/others")}>
             {" "}
             <a>
               <figure>
@@ -170,42 +176,47 @@ export const HomePage = () => {
               your chances of having a longer and healthier life are improved if
               you have a healthy BMI.
             </p>
-            <button onClick={() => navigate("/bmi")}>
-              {" "}
-              &nbsp; Find out more &nbsp;{" "}
-            </button>
+            <p
+           
+            class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
+            onClick={() => navigate("/bmi")}
+            style={{backgroundColor: "#abc937"}}
+          >
+        Explore now
+
+          </p>
           </div>
           <div class="col-md-1"> </div>
         </div>
       </div>
 
-      <div
-        class="container-fluid"
-        style={{ position: "relative", width: "80%" }}
-      >
-        <div class="row">
-          <img src={healthybanner} />
-          <div class="bottom-left">
-            <p>
-              <strong>How Many Calories Do You Need?</strong>
-            </p>
-            <span>
-              The amount of calories people absorb daily through drinks and
-              food. <br></br>If the body is provided with the necessary amount
-              of calories each day, the body will function normally. <br></br>On
-              the contrary, providing too many or too few calories will cause
-              health problems.
-            </span>
-            <br></br>
-            <br></br>
-            <button onClick={() => navigate("/calculatorcalo")}>
-              {" "}
-              &nbsp; Find out more &nbsp;{" "}
-            </button>
-          </div>
+      <div className="section2-banner ">
+        <div class="col-lg-5 text-home ">
+         <br/> <br/>
+          <h1 class="display-4 text-black animated slideInRight">
+          How Many Calories Do You Need?
+
+
+          </h1>
+          <p class="text-black mb-4 animated slideInRight">
+          If the body is provided with the necessary amount of calories each day, the body will function normally.
+On the contrary, providing too many or too few calories will cause health problems.
+          </p>
+          <p
+           
+            class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
+            onClick={() => navigate("/calculatorcalo")}
+            style={{backgroundColor: "#abc937"}}
+          >
+          Calculate now
+
+          </p>
+        
         </div>
       </div>
+
       <br></br>
+
       <div class="container" style={{ textAlign: "center" }}>
         <p className="font">
           <strong>LATEST BLOG</strong>
@@ -225,7 +236,7 @@ export const HomePage = () => {
           }}
         >
           <div class="row">
-            <div className="col-md-6" >
+            <div className="col-md-6">
               <div class="flex-latest-blog">
                 <div onClick={() => navigate("/blog-6-great")}>
                   <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog3_1.jpg.pagespeed.ic.1P1YpBYA1T.webp" />

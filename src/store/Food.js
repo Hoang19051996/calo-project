@@ -27,6 +27,12 @@ const foodsSlice = createSlice({
     addCartItems: (state, action) => {
       state.cartItem.push(action.payload)
      },
+     removeCartItems: (state, action) => {
+      const indexDelete = state.cartItem.findIndex(
+        (item) => item.id === action.payload
+      );
+      state.cartItem.splice(indexDelete, 1);
+     },
     sumPrice : (state , action) =>  {
       state.totalPrice = state.totalPrice + action.payload;
     }, 
@@ -39,7 +45,9 @@ const foodsSlice = createSlice({
     setCommune : (state , action) => {
       state.commune = action.payload;
     },
-    
+    setPrice : (state , action) => {
+      state.totalPrice = state.totalPrice - action.payload
+    }
 
   },
   extraReducers(builder) {
@@ -145,12 +153,22 @@ export const uploadImage = createAsyncThunk(
   });
 // export const selectTodosDone = (state) => state.todos.todos.filter((todo) => todo.completed)
 // export const selectTodosNotDone = (state) => state.todos.todos.filter((todo) => !todo.completed)
-export const selectFruit = (state) => state.foods.foods.filter((food) => food.categories === "Vegetable")
+
 export const selectWeekdays = (state) => state.foods.foods.filter((food) => food.date === "Weekdays")
 export const selectWeekend = (state) => state.foods.foods.filter((food) => food.date === "Weekend")
 
+export const selectSeptember = (state) => state.foods.order.filter((order) => order.month === 8)
+export const selectAugust = (state) => state.foods.order.filter((order) => order.month === 7)
+
+export const selectFruit = (state) => state.foods.foods.filter((food) => food.categories === "FreshFruit")
+export const selectCombo = (state) => state.foods.foods.filter((food) => food.categories === "Combo")
+export const selectMeat = (state) => state.foods.foods.filter((food) => food.categories === "Thịt")
+export const selectVegetable = (state) => state.foods.foods.filter((food) => food.categories === "Vegetable")
+export const selectJuice = (state) => state.foods.foods.filter((food) => food.categories === "Juice")
+export const selectFastFood = (state) => state.foods.foods.filter((food) => food.categories === "FastFood")
+export const selectOthers = (state) => state.foods.foods.filter((food) => food.categories === "Others")
 
 
 
-export const { setTotalCaloDaily , addCartItems , sumPrice , setProvince , setDistrict , setCommune } = foodsSlice.actions;
+export const { setTotalCaloDaily , addCartItems , sumPrice , setProvince , setDistrict , setCommune , removeCartItems , setPrice} = foodsSlice.actions;
 export default foodsSlice.reducer;

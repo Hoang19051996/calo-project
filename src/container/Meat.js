@@ -15,7 +15,7 @@ export const Meat = () => {
       <div style={{paddingLeft : "5%"}}>
         <BreadCrumbs page="Meat" />
         </div>
-      <ListProductByCate cate="Meat"/>
+      <ListProductByCate cate="Thịt"/>
       <Footer />
     </>
   );

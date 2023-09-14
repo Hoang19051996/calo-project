@@ -14,6 +14,7 @@ import Header from "../component/Nav";
 import { useEffect } from "react";
 import Breadcrumbs from "../component/Breadcrumbs";
 import BreadCrumbs from "../component/Breadcrumbs";
+import { Footer } from "../component/Footer";
 
 export const Bmi = () => {
   const [valueWeight, setValueWeight] = useState(20);
@@ -71,10 +72,9 @@ export const Bmi = () => {
       <div className="bmi-container">
         <Header />
         <br></br>
-        <div style={{paddingLeft : "5%"}}>
-        <BreadCrumbs page="BMI" />
+        <div style={{ paddingLeft: "5%" }}>
+          <BreadCrumbs page="BMI" />
         </div>
-      
       </div>
 
       <br></br>
@@ -90,21 +90,36 @@ export const Bmi = () => {
           }}
         >
           <h3> Your BMI Score</h3>
-          <div style={{ width: 140, height: 140, textAlign: "center" }}>
-            <CircularProgressbar value={bmi} text={`${bmi}`} maxValue="40" />
+          <br></br>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-2"></div>
+              <div className="col-md-4 text-center"  >
+                <br />
+                <div style={{ width: 140, height: 140, textAlign: "center" }}>
+                  <CircularProgressbar
+                    value={bmi}
+                    text={`${bmi}`}
+                    maxValue="40"
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 text-center " >
+                <img src={valueImage} width={90} />
+              </div>
+            </div>
           </div>
 
           <br></br>
-          <div className="d-flex">
-            <span style={{ width: "70%" }}>
+          <div className="d-flex text-center container px-5">
+            <span style={{ width: "100%" }}>
               {valueTextBmi}
               <br></br>
             </span>
-            <img src={valueImage} width={90} />
           </div>
           <br></br>
         </Col>
-        <Col className="bg-light border " xs="5">
+        <Col className="bg-light border p-5" xs="5">
           {/* Row của weight */}
           <Row>
             <Col xs="6">
@@ -179,11 +194,11 @@ export const Bmi = () => {
         </Col>
         <Col xs="1"></Col>
       </Row>
-                <br></br>
+      <br></br>
       <div className="container">
-        <div >
+        <div>
           <div>
-            <h1 >What is the body mass index (BMI)?</h1>
+            <h1>What is the body mass index (BMI)?</h1>
           </div>
         </div>
         <article>
@@ -203,7 +218,7 @@ export const Bmi = () => {
                 </p>
               </section>
               <section>
-                <h2 >BMI ranges</h2>
+                <h2>BMI ranges</h2>
                 <p>
                   For most adults, an ideal BMI is in the 18.5 to 24.9 range.
                 </p>
@@ -213,7 +228,7 @@ export const Bmi = () => {
                   as height and weight.
                 </p>
                 <p>If your BMI is:</p>
-                <ul >
+                <ul>
                   <li>
                     below 18.5&nbsp;&ndash;&nbsp;you&apos;re in
                     the&nbsp;underweight range
@@ -237,7 +252,7 @@ export const Bmi = () => {
                 </p>
               </section>
               <section>
-                <h2 >Accuracy of BMI</h2>
+                <h2>Accuracy of BMI</h2>
                 <p>
                   BMI takes into account natural variations in body shape,
                   giving a healthy weight range for a particular height.
@@ -268,6 +283,8 @@ export const Bmi = () => {
           </div>
         </article>
       </div>
+      <Footer />
     </div>
+
   );
 };

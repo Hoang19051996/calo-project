@@ -16,7 +16,7 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import axios from "axios";
+
 import {
   Modal,
   Button,
@@ -33,6 +33,8 @@ import { useNavigate } from "react-router-dom";
 import { ListOrder } from "../component/ListOrder";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
+import { SideBarAdmin } from "../component/SideBarAdmin";
+
 
 export const AdminPage = () => {
   const [modal, setModal] = React.useState(false);
@@ -100,8 +102,9 @@ export const AdminPage = () => {
       };
 
       dispatch(addNewFoods(newFood));
-      setModal(false);
       setListFood({});
+      setModal(false);
+  
     }
   };
 
@@ -125,8 +128,7 @@ export const AdminPage = () => {
   };
   return (
     <>
-      <Header />
-      <br></br>
+      <SideBarAdmin />
 
       <div style={{ paddingLeft: 30 }}>
         <div class="container">
@@ -264,6 +266,11 @@ export const AdminPage = () => {
           </Button>
         </ModalFooter>
       </Modal>
+
+
+
+
+     
     </>
   );
 };

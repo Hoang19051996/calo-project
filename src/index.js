@@ -27,6 +27,7 @@ import { Others } from "./container/Others";
 import CalculatorCalo from "./container/CalculatorCalo";
 import { Blog } from "./container/Blog";
 import "./i18n/i18n";
+import { DashBoard } from "./container/DashBoard";
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
     element: <Vegetable />,
   },
   {
-    path: "/fast-food",
+    path: "/fastfood",
     element: <FastFood />,
   },
   {
@@ -109,6 +110,15 @@ const router = createBrowserRouter([
     path: "/blog-6-great",
     element: <Blog />,
   },
+  {
+    path: "/dashboard",
+    element: (
+      <RequireAuth>
+        {" "}
+        <DashBoard />
+      </RequireAuth>
+    ),
+  }
 ]);
 
 ReactDOM.render(

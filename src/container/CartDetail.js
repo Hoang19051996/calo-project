@@ -2,13 +2,17 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Province } from "../component/Province";
-import { addNewOrder } from "../store/Food";
+import { addNewOrder, removeCartItems, setPrice } from "../store/Food";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { removeItem } from "localforage";
+
 export const CartDetail = () => {
   const [count, setCount] = useState(1);
   const [street, setStreet] = useState("");
 
   const cartItem = useSelector((state) => state.foods.cartItem);
+
+  
   const province = useSelector((state) => state.foods.province)
   const district = useSelector((state) => state.foods.district);
   const commune = useSelector((state) => state.foods.commune);
@@ -17,6 +21,7 @@ export const CartDetail = () => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+  
   var sumPrice = useSelector((state) => state.foods.totalPrice);
   sumPrice = sumPrice.toLocaleString("vi", {
     style: "currency",
@@ -27,6 +32,8 @@ export const CartDetail = () => {
 
 
   const handleAddOrder = async () => {
+    const day = new Date();
+let month = day.getMonth();
     const newOrder = {
       id: crypto.randomUUID(),
       foodName: cartItem.map((cart) => cart.foodName),
@@ -35,11 +42,20 @@ export const CartDetail = () => {
       province: province,
       district : district,
       commune : commune,
+      month : month,
     };
  
     await dispatch(addNewOrder(newOrder));
     window.location.href = "/combo";
+   
   }
+
+  const handleDelete = async (list) => {
+    dispatch(removeCartItems(list.id));
+    dispatch(setPrice(list.price))
+
+  };
+
   return (
     <>
       <section class="h-100 h-custom" style={{ backgroundColor: "#d2c9ff" }}>
@@ -105,7 +121,7 @@ export const CartDetail = () => {
                                   })}
                                 </h6>
                               </div>
-                              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                              <div class="col-md-1 col-lg-1 col-xl-1 text-end" onClick={() => handleDelete(list)}>
                                 <a href="#!" class="text-muted">
                                   <i class="fas fa-times"></i>
                                 </a>
@@ -180,6 +196,7 @@ export const CartDetail = () => {
           </div>
         </div>
       </section>
+
 
 
       <Modal isOpen={modal} toggle={toggle} >

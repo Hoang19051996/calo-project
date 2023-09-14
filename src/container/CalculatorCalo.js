@@ -20,6 +20,8 @@ import { setTotalCaloDaily } from "../store/Food";
 import { useNavigate } from "react-router-dom";
 import { border } from "@mui/system";
 import BreadCrumbs from "../component/Breadcrumbs";
+import { Footer } from "../component/Footer";
+
 // const MyComponent = ({ title, min, max }) => {
 //   const [value, setValue] = useState(20);
 
@@ -196,7 +198,7 @@ function CalculatorCalo() {
             </table>
           </div>
 
-          <div className="col-md-6 bg-light border ">
+          <div className="col-md-6 bg-light border  ">
             <br></br>
             <FormGroup row>
               <Label sm={3}>Select your genders</Label>
@@ -299,7 +301,7 @@ function CalculatorCalo() {
               </Col>
             </Row>
             <FormGroup row>
-              <Label sm={3}>Select your activities</Label>
+              <Label sm={4}>Select your activities</Label>
               <Col sm={8}>
                 <Input
                   id="select"
@@ -336,6 +338,10 @@ function CalculatorCalo() {
           </div>
         </div>
       </div>
+      <br/>
+     
+     <br/>
+      <Footer />
     </div>
   );
 }

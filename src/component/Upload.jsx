@@ -4,7 +4,7 @@ import { Uploader } from "uploader";
 
 
 const uploader = Uploader({
-    apiKey: "public_12a1yXH5zmxbnsPVGg658JAi6WEQ",
+    apiKey: "public_FW25bg4GdxacoZp8UgRusZsbsMnu",
 
 });
 

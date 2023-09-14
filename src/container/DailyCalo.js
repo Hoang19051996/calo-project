@@ -20,6 +20,7 @@ import Header from "../component/Nav";
 import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
 import BreadCrumbs from "../component/Breadcrumbs";
+import { Footer } from "../component/Footer";
 
 const URL = "https://64ccc3c12eafdcdc851a433f.mockapi.io/calories";
 let nextId = 1;
@@ -236,6 +237,10 @@ function DailyCalo() {
           </Button>
         </ModalFooter>
       </Modal>
+      <br/>
+     
+    <br/>
+      <Footer />
     </>
   );
 }

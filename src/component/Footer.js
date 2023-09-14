@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom"
+
 export const Footer = () => {
-    
+    const navigate = useNavigate();
     return(
 
         <>
@@ -29,9 +31,10 @@ export const Footer = () => {
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li>About Us</li>
-              <li>BMI</li>
-              <li>Your Daily Calories</li>
+              <li onClick={() => navigate("/contact-us")}>Contact Us</li>
+              <li onClick={() => navigate("/bmi")}>BMI</li>
+              <li onClick={() => navigate("/dailycalo")}>Your Daily Calories</li>
+              <li onClick={() => navigate("/combo")}>Our Menu</li>
             </ul>
           </div>
         </div>

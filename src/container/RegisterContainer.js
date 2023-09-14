@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Button,
   Container,
@@ -12,9 +12,10 @@ import {
 export const URL_API_ACCOUNTS = "https://64c7a27fa1fe0128fbd50f1c.mockapi.io/accounts";
 export const RegisterContainer = () => {
     const {handleSubmit, control} = useForm()
-
+    const navigate = useNavigate();
     const handleRegister = (value) => {
         axios.post(URL_API_ACCOUNTS , value)
+        navigate("/login")
     }
   return (
     <>
@@ -28,7 +29,7 @@ export const RegisterContainer = () => {
                 name="username"
                 control={control}
                 render={({ field }) => (
-                  <Input {...field} placeholder="name" type="text" />
+                  <Input {...field} placeholder="name" type="email" required/>
                 )}
               />
             </InputGroup>
@@ -37,13 +38,13 @@ export const RegisterContainer = () => {
               name="password"
               control={control}
               render={({ field }) => (
-                <Input {...field} placeholder="password" type="password" />
+                <Input {...field} placeholder="password" type="password" required/>
               )}
             />
 
             <br />
            
-            <Button type="submit" color="primary"> Register</Button>
+            <Button type="submit" color="primary" >Register</Button>
             <Link to='/login'>
             <Button>Login</Button>
             </Link>

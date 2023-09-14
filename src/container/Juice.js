@@ -13,9 +13,10 @@ export const Juice = () => {
       <Header />
       <br></br>
       <div style={{paddingLeft : "5%"}}>
-        <BreadCrumbs page="Juice" />
+        <BreadCrumbs page="Juices" />
         </div>
-      <ListProductByCate cate="Juice"/>
+        
+      <ListProductByCate cate="Juices"/>
       <Footer />
     </>
   );

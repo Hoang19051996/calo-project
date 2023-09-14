@@ -2,7 +2,6 @@ import { Footer } from "../component/Footer";
 
 import Header from "../component/Nav";
 
-import { ListProductByCate } from "../component/ListProductByCate";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -20,9 +19,10 @@ import {
 import no_images from "../Assets/no-image.svg";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { DetailProduct } from "../component/DetailProduct";
-import { SideBar } from "../component/SideBar";
-import { fontWeight } from "@mui/system";
+
 import BreadCrumbs from "../component/Breadcrumbs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ComboPage = () => {
   const [value, setValue] = React.useState("1");
@@ -64,269 +64,309 @@ export const ComboPage = () => {
   };
   console.log("detailFood", detailFood);
   const cartItem = useSelector((state) => state.foods.cartItem);
-
+  const notify = () => toast.success('Add to cart successfully', {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
   return (
     <>
       <Header />
-    <br></br>
-    <div style={{paddingLeft : "5%"}}>
+
+      <br></br>
+      <div style={{ paddingLeft: "5%" }}>
         <BreadCrumbs page="Menu Daily" />
-        </div>
+      </div>
       <Box
         sx={{ width: "100%", typography: "body1" }}
         centered
         textAlign={"center"}
       >
-        <TabContext value={value}>
-          <Box sx={{ borderColor: "divider" }}>
-            <TabList
-              onChange={handleChange}
-              aria-label="lab API tabs example"
-              centered
-              textColor="primary"
-             
-            >
-              <Tab label="Today" value="1" style={{ fontSize: "15px",  fontWeight : 700 }}     />
-              <Tab
-                label="Weekdays
+        <br></br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <TabContext value={value}>
+                <Box sx={{ borderColor: "divider" }}>
+                  <TabList
+                    onChange={handleChange}
+                    aria-label="lab API tabs example"
+                    textColor="primary"
+                  >
+                    <Tab
+                      label="Today"
+                      value="1"
+                      style={{ fontSize: "15px", fontWeight: 700 }}
+                    />
+                    <Tab
+                      label="Weekdays
 "
-                style={{ fontSize: "15px",  fontWeight : 700 }}
-                value="2"
-              />
-              <Tab
-                label="Weekend
+                      style={{ fontSize: "15px", fontWeight: 700 }}
+                      value="2"
+                    />
+                    <Tab
+                      label="Weekend
 "
-                style={{ fontSize: "15px",  fontWeight : 700 }}
-                value="3"
-              />
-            </TabList>
-          </Box>
-          <TabPanel value="1">
-            {date === 6 || date === 0 ? (
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-2">
-                    <SideBar />
-                  </div>
-                  <div class="col-md-10">
-                    <div className="productList container">
+                      style={{ fontSize: "15px", fontWeight: 700 }}
+                      value="3"
+                    />
+                  </TabList>
+                </Box>
+                <TabPanel value="1">
+                  {date === 6 || date === 0 ? (
+                    <div class="container">
                       <div class="row">
-                        {listProductWeekend.map((list) => (
-                          <div class="col-md-3" key={list.id}>
-                            {list.images.length <= 10 ? (
-                              <img src={no_images} width={"100%"} />
-                            ) : (
-                              <img src={list.images} width={"100%"}></img>
-                            )}
+                        <div class="col-md-12">
+                          <div className="productList container">
+                            <div class="row">
+                              {listProductWeekend.map((list) => (
+                                <div class="col-md-3" key={list.id}>
+                                  {list.images.length <= 10 ? (
+                                    <img src={no_images} width={"100%"} />
+                                  ) : (
+                                    <img src={list.images} width={"100%"}></img>
+                                  )}
 
-                            <p style={{ textAlign: "left" }}>{list.foodName}</p>
+                                  <p style={{ textAlign: "left" }}>
+                                    {list.foodName}
+                                  </p>
 
-                            <span class="d-flex">
-                              {" "}
-                              <div
-                                class="mr-auto "
-                                style={{ color: "#a1ba36", fontSize: "medium" }}
-                              >
-                                {" "}
-                                {list.calo} cal{" "}
-                              </div>
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleShowDescription(list);
-                                  setModal(!modal);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-eye" color="#336A29"></i>
-                              </div>{" "}
-                              &nbsp;
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleAddCartItemsWeekdays(list);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-cart-plus" />{" "}
-                              </div>
-                            </span>
+                                  <span class="d-flex">
+                                    {" "}
+                                    <div
+                                      class="mr-auto "
+                                      style={{
+                                        color: "#a1ba36",
+                                        fontSize: "medium",
+                                      }}
+                                    >
+                                      {" "}
+                                      {list.calo} cal{" "}
+                                    </div>
+                                    <div
+                                      class="p cartButton"
+                                      onClick={() => {
+                                        handleShowDescription(list);
+                                        setModal(!modal);
+                                      }}
+                                    >
+                                      {" "}
+                                      <i
+                                        class="fa-solid fa-eye"
+                                        color="#336A29"
+                                      ></i>
+                                    </div>{" "}
+                                    &nbsp;
+                                    <div
+                                      class="p cartButton"
+                                      onClick={() => {
+                                        handleAddCartItemsWeekdays(list);
+                                      }}
+                                    >
+                                      {" "}
+                                      <i class="fa-solid fa-cart-plus" />{" "}
+                                    </div>
+                                  </span>
 
-                            <br></br>
+                                  <br></br>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div className="productList container">
+                            <div class="row">
+                              {listProductWeekdays.map((list) => (
+                                <div class="col-md-3" key={list.id}>
+                                  {list.images.length <= 10 ? (
+                                    <img src={no_images} width={"100%"} />
+                                  ) : (
+                                    <img src={list.images} width={"100%"}></img>
+                                  )}
+
+                                  <p style={{ textAlign: "left" }}>
+                                    {list.foodName}
+                                  </p>
+
+                                  <span class="d-flex">
+                                    {" "}
+                                    <div
+                                      class="mr-auto "
+                                      style={{
+                                        color: "#a1ba36",
+                                        fontSize: "medium",
+                                      }}
+                                    >
+                                      {" "}
+                                      {list.calo} cal{" "}
+                                    </div>
+                                    <div
+                                      class="p cartButton"
+                                      onClick={() => {
+                                        handleShowDescription(list);
+                                        setModal(!modal);
+                                      }}
+                                    >
+                                      {" "}
+                                      <i
+                                        class="fa-solid fa-eye"
+                                        color="#336A29"
+                                      ></i>
+                                    </div>{" "}
+                                    &nbsp;
+                                    <div
+                                      class="p cartButton"
+                                      onClick={() => {
+                                        handleAddCartItemsWeekdays(list);
+                                        notify();
+                                      }}
+                                    >
+                                      {" "}
+                                      <i class="fa-solid fa-cart-plus" />{" "}
+                                    </div>
+                                  </span>
+
+                                  <br></br>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </TabPanel>
+                <TabPanel value="2">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div className="productList container">
+                          <div class="row">
+                            {listProductWeekdays.map((list) => (
+                              <div class="col-md-3" key={list.id}>
+                                {list.images.length <= 10 ? (
+                                  <img src={no_images} width={"100%"} />
+                                ) : (
+                                  <img src={list.images} width={"100%"}></img>
+                                )}
+
+                                <p style={{ textAlign: "left" }}>
+                                  {list.foodName}
+                                </p>
+
+                                <span class="d-flex">
+                                  {" "}
+                                  <div
+                                    class="mr-auto "
+                                    style={{
+                                      color: "#a1ba36",
+                                      fontSize: "medium",
+                                    }}
+                                  >
+                                    {" "}
+                                    {list.calo} cal{" "}
+                                  </div>
+                                  <div
+                                    class="p cartButton"
+                                    onClick={() => {
+                                      handleShowDescription(list);
+                                      setModal(!modal);
+                                    }}
+                                  >
+                                    {" "}
+                                    <i
+                                      class="fa-solid fa-eye"
+                                      color="#336A29"
+                                    ></i>
+                                  </div>{" "}
+                                  &nbsp;
+                                </span>
+
+                                <br></br>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ) : (
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-2">
-                    <SideBar />
-                  </div>
-                  <div class="col-md-10">
-                    <div className="productList container">
-                      <div class="row">
-                        {listProductWeekdays.map((list) => (
-                          <div class="col-md-3" key={list.id}>
-                            {list.images.length <= 10 ? (
-                              <img src={no_images} width={"100%"} />
-                            ) : (
-                              <img src={list.images} width={"100%"}></img>
-                            )}
+                </TabPanel>
+                <TabPanel value="3">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div className="productList container">
+                          <div class="row">
+                            {listProductWeekend.map((list) => (
+                              <div class="col-md-3" key={list.id}>
+                                {list.images.length <= 10 ? (
+                                  <img src={no_images} width={"100%"} />
+                                ) : (
+                                  <img src={list.images} width={"100%"}></img>
+                                )}
 
-                            <p style={{ textAlign: "left" }}>{list.foodName}</p>
+                                <p style={{ textAlign: "left" }}>
+                                  {list.foodName}
+                                </p>
 
-                            <span class="d-flex">
-                              {" "}
-                              <div
-                                class="mr-auto "
-                                style={{ color: "#a1ba36", fontSize: "medium" }}
-                              >
-                                {" "}
-                                {list.calo} cal{" "}
+                                <span class="d-flex">
+                                  {" "}
+                                  <div
+                                    class="mr-auto "
+                                    style={{
+                                      color: "#a1ba36",
+                                      fontSize: "medium",
+                                    }}
+                                  >
+                                    {" "}
+                                    {list.calo} cal{" "}
+                                  </div>
+                                  <div
+                                    class="p cartButton"
+                                    onClick={() => {
+                                      handleShowDescription(list);
+                                      setModal(!modal);
+                                    }}
+                                  >
+                                    {" "}
+                                    <i
+                                      class="fa-solid fa-eye"
+                                      color="#336A29"
+                                    ></i>
+                                  </div>{" "}
+                                  &nbsp;
+                                </span>
+
+                                <br></br>
                               </div>
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleShowDescription(list);
-                                  setModal(!modal);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-eye" color="#336A29"></i>
-                              </div>{" "}
-                              &nbsp;
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleAddCartItemsWeekdays(list);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-cart-plus" />{" "}
-                              </div>
-                            </span>
-
-                            <br></br>
+                            ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            )}
-          </TabPanel>
-          <TabPanel value="2">
-          <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-2">
-                    <SideBar />
-                  </div>
-                  <div class="col-md-10">
-                    <div className="productList container">
-                      <div class="row">
-                        {listProductWeekdays.map((list) => (
-                          <div class="col-md-3" key={list.id}>
-                            {list.images.length <= 10 ? (
-                              <img src={no_images} width={"100%"} />
-                            ) : (
-                              <img src={list.images} width={"100%"}></img>
-                            )}
-
-                            <p style={{ textAlign: "left" }}>{list.foodName}</p>
-
-                            <span class="d-flex">
-                              {" "}
-                              <div
-                                class="mr-auto "
-                                style={{ color: "#a1ba36", fontSize: "medium" }}
-                              >
-                                {" "}
-                                {list.calo} cal{" "}
-                              </div>
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleShowDescription(list);
-                                  setModal(!modal);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-eye" color="#336A29"></i>
-                              </div>{" "}
-                              &nbsp;
-                           
-                            </span>
-
-                            <br></br>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </TabPanel>
-          <TabPanel value="3">
-          <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-2">
-                    <SideBar />
-                  </div>
-                  <div class="col-md-10">
-                    <div className="productList container">
-                      <div class="row">
-                        {listProductWeekend.map((list) => (
-                          <div class="col-md-3" key={list.id}>
-                            {list.images.length <= 10 ? (
-                              <img src={no_images} width={"100%"} />
-                            ) : (
-                              <img src={list.images} width={"100%"}></img>
-                            )}
-
-                            <p style={{ textAlign: "left" }}>{list.foodName}</p>
-
-                            <span class="d-flex">
-                              {" "}
-                              <div
-                                class="mr-auto "
-                                style={{ color: "#a1ba36", fontSize: "medium" }}
-                              >
-                                {" "}
-                                {list.calo} cal{" "}
-                              </div>
-                              <div
-                                class="p cartButton"
-                                onClick={() => {
-                                  handleShowDescription(list);
-                                  setModal(!modal);
-                                }}
-                              >
-                                {" "}
-                                <i class="fa-solid fa-eye" color="#336A29"></i>
-                              </div>{" "}
-                              &nbsp;
-                            
-                            </span>
-
-                            <br></br>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </TabPanel>
-        </TabContext>
+                </TabPanel>
+              </TabContext>
+            </div>
+          </div>
+        </div>
       </Box>
 
       <Footer />
-
+      <ToastContainer
+    
+      />
       <Modal size="lg" isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>{detailFood.foodName}</ModalHeader>
         <ModalBody>
@@ -341,10 +381,7 @@ export const ComboPage = () => {
           />
         </ModalBody>
         <ModalFooter>
-          <Button  onClick={toggle}>
-            Cancle
-          </Button>{" "}
-        
+          <Button onClick={toggle}>Cancle</Button>{" "}
         </ModalFooter>
       </Modal>
     </>

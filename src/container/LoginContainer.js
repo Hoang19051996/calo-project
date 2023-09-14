@@ -30,7 +30,7 @@ export const LoginContainer = () => {
             setLoginSuccess(true)
             dispatch(setUser(accountLoginFound))
             localStorage.setItem('user', JSON.stringify(accountLoginFound))
-            navigate('/admin')
+            navigate('/dashboard')
     
 
         } else {

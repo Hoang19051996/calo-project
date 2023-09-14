@@ -1,8 +1,5 @@
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import EN from "../Assets/ENG.jpg";
 import VN from "../Assets/VN.png";
 import {
@@ -18,13 +15,13 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
-  Button,
 } from "reactstrap";
 import Badge from "@mui/material/Badge";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n/i18n";
-
-export function Header({ transparent }) {
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+function Header({transparent}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -39,48 +36,60 @@ export function Header({ transparent }) {
   const onClickEN = () => {
     i18n.changeLanguage("eng");
   };
-
   return (
-    <>
-      <div>
-        <nav
-          class="navbar navbar-expand-lg navbar-light b"
-          style={{ backgroundColor: `${transparent}` }}
-        >
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-              {" "}
-              <i class="fa-solid fa-seedling"></i>
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div
-              class="collapse navbar-collapse d-flex justify-content-between"
-              id="navbarSupportedContent"
-            >
-              <div>
-                <Link to="/bmi" className="navbarBrand" style={{textDecoration: "none"}}>
-                  BMI &nbsp;&nbsp;&nbsp;
+    <div>
+      <Navbar  expand="md" style={{ backgroundColor: `${transparent}` }}>
+        <NavbarBrand href="/">
+          <i class="fa-solid fa-house fa-xl"></i>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink>
+                <Link to="/bmi" className="navbarBrand">
+                  BMI&nbsp;&nbsp;&nbsp;
                 </Link>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
                 <Link to="/calculatorcalo" className="navbarBrand">
                   {t("calorie_calculator")} &nbsp;&nbsp;&nbsp;
                 </Link>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink>
                 <Link to="/dailycalo" className="navbarBrand">
                   {t("daily_calorie")}&nbsp;&nbsp;&nbsp;
                 </Link>
-                <Link className="navbarBrand"> {t("gallery")}</Link>
-              </div>
-              <div>
-                <div className="d-flex" >
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link to="/freshfruit" className="navbarBrand">
+                  {t("gallery")}&nbsp;&nbsp;&nbsp;
+                </Link>
+              </NavLink>
+            </NavItem>
+
+            {/* <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown> */}
+          </Nav>
+          <NavbarText>
+            <div>
+              <div className="d-flex">
                 <div
                   onClick={() => navigate("/cart-detail")}
                   style={{ cursor: "pointer" }}
@@ -92,22 +101,21 @@ export function Header({ transparent }) {
                   >
                     <ShoppingCartIcon />
                   </Badge>
-                  </div>
-                  <div>
+                </div>
+                <div>
                   <Link to="/admin" className="navbarBrand">
                     {t("title_admin")}
                   </Link>
                   <img src={EN} width={"30px"} onClick={() => onClickEN()} />{" "}
                   &nbsp;
                   <img src={VN} width={"30px"} onClick={() => onClickVN()} />
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </>
+          </NavbarText>
+        </Collapse>
+      </Navbar>
+    </div>
   );
 }
 
