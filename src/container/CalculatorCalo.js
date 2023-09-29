@@ -95,14 +95,17 @@ function CalculatorCalo() {
     } else if (selected == "option5") {
       setValueR(1.9);
     }
-  }, [selected]);
+  }, [selected]); // select
 
   const handleCalculateCalo = () => {
     let newbmr = 0;
-    let bmrMale = 66 + 13.7 * valueWeight + 5 * valueHeight - 6.8 * valueAge;
-    let bmrFemale =
-      655 + 9.6 * valueWeight + 1.8 * valueHeight - 4.7 * valueAge;
+    // let bmrMale = 66 + 13.7 * valueWeight + 5 * valueHeight - 6.8 * valueAge;
+    let bmrMale = 10*valueWeight + 6.25*valueHeight - 5*valueAge +5 ;
 
+    // let bmrFemale =
+      // 655 + 9.6 * valueWeight + 1.8 * valueHeight - 4.7 * valueAge;
+      let bmrFemale = 10*valueWeight + 6.25*valueHeight - 5*valueAge -161;
+      // 655 + 9.6 * valueWeight + 1.8 * valueHeight - 4.7 * valueAge;
     if (gender === true && valueWeight > 0 && valueHeight > 0 && valueAge > 0) {
       newbmr = bmrMale;
       console.log("bmrValue", newbmr);
@@ -123,6 +126,9 @@ function CalculatorCalo() {
     //     ? 66 + 13.7 * valueWeight + 5 * valueHeight - 6.8 * valueAge
     //     : 655 + 9.6 * valueWeight + 1.8 * valueHeight - 6.8 * valueAge
     // );
+
+    console.log("value R" , valueR)
+    console.log("bmr " ,newbmr )
     let caloValueToFix = (newbmr * valueR).toFixed(0);
 
     setCaloValue(caloValueToFix);
@@ -136,9 +142,9 @@ function CalculatorCalo() {
     <div>
       <Header />
       <br></br>
-      <div style={{paddingLeft : "5%"}}>
+      <div style={{ paddingLeft: "5%" }}>
         <BreadCrumbs page="Calorie calculator" />
-        </div>
+      </div>
 
       <div className="container">
         <div className="row">
@@ -153,7 +159,7 @@ function CalculatorCalo() {
             <h3>Your Daily Calories</h3>
             <span className="calories"> {caloValue} Cal</span>
             <br></br>
-            <table  className="table-dailycalo">
+            <table className="table-dailycalo">
               <thead>
                 <tr scope="row">
                   <td colspan="2">
@@ -196,6 +202,15 @@ function CalculatorCalo() {
                 </tr>
               </tbody>
             </table>
+
+            <div class="pt-5" onClick={() => navigate("/dailycalo")}>
+                          <h6 class="mb-0">
+                            <a href="#!" class="text-body">
+                             
+                         {caloValue ?   (<> <span>Control your meal</span> <i class='fas fa-long-arrow-alt-right me-2'></i></>) : "" }   
+                            </a>
+                          </h6>
+                        </div>
           </div>
 
           <div className="col-md-6 bg-light border  ">
@@ -310,6 +325,9 @@ function CalculatorCalo() {
                   onChange={(e) => setSelectedOption(e.target.value)}
                   value={selected}
                 >
+                   <option value="0">
+                  ---Choose one option---
+                  </option>
                   <option value="option1">
                     Sedentary: little or no more excercise
                   </option>
@@ -328,19 +346,19 @@ function CalculatorCalo() {
                 </Input>
               </Col>
             </FormGroup>
-            <Button outline color="success" onClick={handleCalculateCalo}>
+            <Button  color="success" onClick={handleCalculateCalo} >
               Calculate your Calories
             </Button>{" "}
-            <Button color="info" outline>
+            <Button color="success" outline>
               {" "}
               Reset{" "}
             </Button>
           </div>
         </div>
       </div>
-      <br/>
-     
-     <br/>
+      <br />
+
+      <br />
       <Footer />
     </div>
   );

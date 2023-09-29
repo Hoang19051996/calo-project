@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "../i18n/i18n";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-function Header({transparent}) {
+function Header( ) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -38,7 +38,7 @@ function Header({transparent}) {
   };
   return (
     <div>
-      <Navbar  expand="md" style={{ backgroundColor: `${transparent}` }}>
+      <Navbar expand="md" style={{  position:"sticky", top: 0 }}>
         <NavbarBrand href="/">
           <i class="fa-solid fa-house fa-xl"></i>
         </NavbarBrand>
@@ -75,6 +75,14 @@ function Header({transparent}) {
               </NavLink>
             </NavItem>
 
+            <NavItem>
+              <NavLink>
+                <Link to="/combo" className="navbarBrand">
+                  {t("menu")}&nbsp;&nbsp;&nbsp;
+                </Link>
+              </NavLink>
+            </NavItem>
+
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Options
@@ -103,10 +111,12 @@ function Header({transparent}) {
                   </Badge>
                 </div>
                 <div>
-                  <Link to="/admin" className="navbarBrand">
-                    {t("title_admin")}
-                  </Link>
-                  <img src={EN} width={"30px"} onClick={() => onClickEN()} />{" "}
+                  &nbsp; &nbsp;
+                  <img
+                    src={EN}
+                    width={"30px"}
+                    onClick={() => onClickEN()}
+                  />{" "}
                   &nbsp;
                   <img src={VN} width={"30px"} onClick={() => onClickVN()} />
                 </div>

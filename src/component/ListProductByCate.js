@@ -10,6 +10,7 @@ export const ListProductByCate = ({cate}) => {
   const foods = useSelector((state) => state.foods.foods);
   console.log("cate" , cate)
   const listFoodsByCate = foods.filter((food) => food.categories === cate)
+  listFoodsByCate.sort((a,b) => a.calo - b.calo)
   console.log("listFoodsByCate" , listFoodsByCate)
 
   useEffect(() => {
@@ -37,8 +38,8 @@ export const ListProductByCate = ({cate}) => {
                     ></img>}
                     
                     <p>{list.foodName}</p>
-                    <p style={{ color: "#a1ba36", fontSize: "larger" }}>
-                      {list.calo}Cal
+                    <p style={{ color: "#a1ba36", fontSize: "medium" }}>
+                      {list.calo} Cal/100g
                     </p>
                   </div>
                 ))}

@@ -1,6 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
-import { Button, Row, Col, Form, Input } from "reactstrap";
+import {
+  Button,
+  Row,
+  Col,
+  Form,
+  Input,
+  UncontrolledCollapse,
+  Card,
+  CardBody,
+} from "reactstrap";
 import { useState } from "react";
 import RangeSlider from "react-bootstrap-range-slider";
 import { CircularProgressbar } from "react-circular-progressbar";
@@ -89,12 +98,13 @@ export const Bmi = () => {
             flexDirection: "column",
           }}
         >
-          <h3> Your BMI Score</h3>
+
+          <h3> Your BMI Score <i class="fa-solid fa-circle-info"     id="toggler"></i></h3>
           <br></br>
           <div className="container">
             <div className="row">
               <div className="col-md-2"></div>
-              <div className="col-md-4 text-center"  >
+              <div className="col-md-4 text-center">
                 <br />
                 <div style={{ width: 140, height: 140, textAlign: "center" }}>
                   <CircularProgressbar
@@ -104,7 +114,7 @@ export const Bmi = () => {
                   />
                 </div>
               </div>
-              <div className="col-md-6 text-center " >
+              <div className="col-md-6 text-center ">
                 <img src={valueImage} width={90} />
               </div>
             </div>
@@ -130,7 +140,7 @@ export const Bmi = () => {
                   setValueWeight(changeEvent.target.value)
                 }
                 min={minW}
-                max={maxW}
+                variant	="success"
               />
               <span
                 style={{ display: "flex ", justifyContent: "space-between" }}
@@ -148,7 +158,10 @@ export const Bmi = () => {
                 max={maxW}
                 onChange={(changeEvent) =>
                   setValueWeight(changeEvent.target.value)
+
                 }
+
+                
               />
             </Col>
           </Row>
@@ -163,6 +176,8 @@ export const Bmi = () => {
                 }
                 min={minH}
                 max={maxH}
+
+                variant	="success"
               />
               <span
                 style={{ display: "flex ", justifyContent: "space-between" }}
@@ -184,10 +199,10 @@ export const Bmi = () => {
               />
             </Col>
           </Row>
-          <Button outline color="success" onClick={handleCaculateBmi}>
+          <Button color="success" onClick={handleCaculateBmi}>
             Calculate your BMI
           </Button>{" "}
-          <Button color="info" outline>
+          <Button color="success" outline>
             {" "}
             Reset{" "}
           </Button>
@@ -195,7 +210,13 @@ export const Bmi = () => {
         <Col xs="1"></Col>
       </Row>
       <br></br>
-      <div className="container">
+    
+
+         
+          <UncontrolledCollapse toggler="#toggler">
+            <Card>
+              <CardBody>
+              <div className="container">
         <div>
           <div>
             <h1>What is the body mass index (BMI)?</h1>
@@ -282,9 +303,15 @@ export const Bmi = () => {
             </div>
           </div>
         </article>
+
+        <div>
+        
+        </div>
       </div>
+              </CardBody>
+            </Card>
+          </UncontrolledCollapse>
       <Footer />
     </div>
-
   );
 };

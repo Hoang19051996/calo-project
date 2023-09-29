@@ -3,7 +3,7 @@ import { margin, padding, width } from "@mui/system";
 import Meat from "../Assets/Meat.jpg";
 import Rice from "../Assets/Rice.jpg";
 import BMI_1 from "../Assets/bmi/BMI_1.jpg";
-import healthybanner from "../Assets/healthy fruits and vegetables green.jpg";
+import menu from "../Assets/bmi/Menu.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { Footer } from "../component/Footer";
 import Header from "../component/Nav";
@@ -45,7 +45,7 @@ export const HomePage = () => {
         </div>
       </div>
       <br></br>
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-md-2" onClick={() => navigate("/freshfruit")}>
             {" "}
@@ -160,14 +160,14 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <div class="container-fluid">
+      <div class="container" style={{paddingTop : 50 , paddingBottom : 50}}>
         <div class="row">
-          <div class="col-md-1"> </div>
-          <div class="col-md-5">
-            <img src={BMI_1} width={"100%"} style={{ padding: 31 }} />
+          {" "}
+       
+          <div class="col-md-6">
+            <img src={BMI_1} width={"100%"}  />
           </div>
-
-          <div className=" col-md-5 " id="section1">
+          <div className=" col-md-6 " id="section1">
             <span style={{ fontFamily: "Loutters ,sans-serif", fontSize: 50 }}>
               <strong>Why is BMI Important ? </strong>
             </span>
@@ -177,46 +177,67 @@ export const HomePage = () => {
               you have a healthy BMI.
             </p>
             <p
-           
-            class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
-            onClick={() => navigate("/bmi")}
-            style={{backgroundColor: "#abc937"}}
-          >
-        Explore now
-
-          </p>
+              class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
+              onClick={() => navigate("/bmi")}
+              style={{ backgroundColor: "#abc937" }}
+            >
+              Explore now
+            </p>
           </div>
-          <div class="col-md-1"> </div>
         </div>
       </div>
 
-      <div className="section2-banner ">
+      <div className="section2-banner " >
         <div class="col-lg-5 text-home ">
-         <br/> <br/>
+          <br /> <br />
           <h1 class="display-4 text-black animated slideInRight">
-          How Many Calories Do You Need?
-
-
+            How Many Calories Do You Need?
           </h1>
           <p class="text-black mb-4 animated slideInRight">
-          If the body is provided with the necessary amount of calories each day, the body will function normally.
-On the contrary, providing too many or too few calories will cause health problems.
+            If the body is provided with the necessary amount of calories each
+            day, the body will function normally. On the contrary, providing too
+            many or too few calories will cause health problems.
           </p>
           <p
-           
             class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
             onClick={() => navigate("/calculatorcalo")}
-            style={{backgroundColor: "#abc937"}}
+            style={{ backgroundColor: "#abc937" }}
           >
-          Calculate now
-
+            Calculate now
           </p>
-        
         </div>
       </div>
 
       <br></br>
+      <div class="container" style={{paddingTop : 50 , paddingBottom : 50}}>
+        <div class="row">
+          {" "}
+       
+         
+          <div className=" col-md-6 " id="section1" style={{paddingTop : 30}}>
+            <span style={{ fontFamily: "Loutters ,sans-serif", fontSize: 50 }}>
+              <strong>Try creating your menu</strong>
+            </span>
+            <p>
+            The menu can tell you the necessary nutritional indicators, why don't you try it
 
+            </p>
+            <p
+              class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
+              onClick={() => navigate("/bmi")}
+              style={{ backgroundColor: "#abc937" }}
+            >
+              Explore now
+            </p>
+          </div>
+
+          <div class="col-md-6">
+            <img src={menu} width={"100%"}  />
+          </div>
+        </div>
+      </div>
+
+      <br></br>
       <div class="container" style={{ textAlign: "center" }}>
         <p className="font">
           <strong>LATEST BLOG</strong>

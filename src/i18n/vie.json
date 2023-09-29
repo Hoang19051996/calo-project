@@ -17,5 +17,22 @@
     "delete": "Xoá",
     "image": "Hình ảnh",
     "search": "Tìm kiếm",
-    "row": "Hàng mỗi trang"
+    "row": "Hàng mỗi trang",
+    "dashboard" : "Bảng điều khiển",
+    "manage" : "Quản lý",
+    "user" : "Người dùng",
+    "setting":"Cài đặt",
+    "about":"Về chúng tôi",
+    "about_text":"Chúng tôi mong muốn mang đến cho bạn một nơi để bạn có thể thoải mái trong quá trình giảm cân của mình, đồng thời tính toán lượng calo bạn ăn mỗi ngày để chinh phục thân hình như mong muốn, với thực đơn từ nguyên liệu tươi ngon và sạch, chúng tôi tin bạn sẽ hài lòng khi bạn chọn chúng tôi",
+    "categories":"Danh mục",
+    "freshfruit":"Trái cây tươi",
+    "meat":"Thịt",
+    "juice":"Nước ép",
+    "vegetable":"Rau củ tươi",
+    "fastfood":"Thức ăn nhanh",
+    "others":"Món khác",
+    "quick_link":"Truy cập nhanh",
+    "contact_us": "Liên hệ",
+    "menu":"Thực đơn",
+    "admin" :"Quản trị"
 }

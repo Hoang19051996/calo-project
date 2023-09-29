@@ -8,7 +8,7 @@ import {
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchFoods, uploadImage } from "../store/Food";
+import { fetchFoods, selectProtein, uploadImage } from "../store/Food";
 import { useEffect } from "react";
 
 import { Upload } from "./Upload";
@@ -26,8 +26,11 @@ export function ListFoodAdmin({
 }) {
   const parent = useAutoAnimate();
   const [searchText, setSearchText] = useState("");
-
+  const [isFilter, setFilter] = useState(true);
   const foods = useSelector((state) => state.foods.foods);
+
+  const proteinOver5 = useSelector(selectProtein);
+  console.log("proteinOver5", proteinOver5)
   const foodFilter = foods.filter((food) =>
     food.foodName.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -37,6 +40,13 @@ export function ListFoodAdmin({
     dispatch(fetchFoods());
   }, []);
 
+  const proteinOverFive = () => {
+
+   setFilter(!isFilter);
+
+
+
+  }
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -81,6 +91,11 @@ export function ListFoodAdmin({
           {t("add_new")}
         </Button>
 
+
+        <button onClick={() =>proteinOverFive()}>
+          Filter 
+        </button>
+
      
         
         </div> 
@@ -99,13 +114,8 @@ export function ListFoodAdmin({
             </tr>
           </thead>
           <tbody>
-            {(rowsPerPage > 0
-              ? foodFilter.slice(
-                  page * rowsPerPage,
-                  page * rowsPerPage + rowsPerPage
-                )
-              : foodFilter
-            ).map((food) => (
+            {
+            (isFilter ? foodFilter : proteinOver5).map((food) => (
               <tr key={food.id} ref={parent}>
                 <td style={{ width: 250 }}>{food.foodName}</td>
                 <td style={{ width: 120 }} align="right">
@@ -144,13 +154,8 @@ export function ListFoodAdmin({
                   </div>
                 </td>
               </tr>
-            ))}
-
-            {emptyRows > 0 && (
-              <tr style={{ height: 34 * emptyRows }}>
-                <td colSpan={5} />
-              </tr>
-            )}
+            ))
+                }
           </tbody>
           <tfoot>
             <tr>

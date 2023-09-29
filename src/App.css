@@ -166,6 +166,7 @@
   position: relative;
   background-position: top;
   font-family: "Poppins", sans-serif;
+ 
 }
 .fw-light {
   font-weight: 300px !important;
@@ -178,7 +179,8 @@
 .navbar {
  
   background-color: #a1c547;
-
+  position: sticky;
+  top: 0;
 }
 
 .navbar :hover{
@@ -249,7 +251,7 @@ color: #336a29;
 }
 
 #section1 {
-  padding-top: 10%;
+
   padding-right: 10%;
   font-weight: 400;
 }
@@ -828,3 +830,5 @@ main .helper span {
   border: 1px solid #e3e3e3;
   border-radius: 4px;
 }
+
+

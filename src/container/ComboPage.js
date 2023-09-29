@@ -381,7 +381,7 @@ export const ComboPage = () => {
           />
         </ModalBody>
         <ModalFooter>
-          <Button onClick={toggle}>Cancle</Button>{" "}
+          <Button onClick={toggle}>Cancel</Button>{" "}
         </ModalFooter>
       </Modal>
     </>

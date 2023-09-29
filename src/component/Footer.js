@@ -1,7 +1,17 @@
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom"
-
+import i18n from "../i18n/i18n";
+import EN from "../Assets/ENG.jpg";
+import VN from "../Assets/VN.png";
 export const Footer = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation("translation");
+    const onClickVN = () => {
+      i18n.changeLanguage("vie");
+    };
+    const onClickEN = () => {
+      i18n.changeLanguage("eng");
+    };
     return(
 
         <>
@@ -10,20 +20,20 @@ export const Footer = () => {
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-5">
-            <h6>About</h6>
-            <p class="text-justify">We want to bring you a place where you can be comfortable in your weight loss process, and calculate the number of calories you eat each day to conquer the body you want, with a menu from fresh ingredients and clean, we believe you will be satisfied when you choose us
+            <h6>{t("about")}</h6>
+            <p class="text-justify">{t("about_text")}
 </p>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
+            <h6>{t("gallery")}</h6>
             <ul class="footer-links">
-              <li>Fresh Fruit</li>
-              <li>Juice</li>
-              <li>Vegetable</li>
-              <li>FastFood</li>
-              <li>Meat</li>
-              <li>Rice</li>
+              <li onClick={()=> navigate("/freshfruit")}>{t("freshfruit")}</li>
+              <li onClick={()=> navigate("/juice")}>{t("juice")}</li>
+              <li onClick={()=> navigate("/vegetable")}>{t("vegetable")}</li>
+              <li onClick={()=> navigate("/fastfood")}>{t("fastfood")}</li>
+              <li onClick={()=> navigate("/meat ")}>{t("meat")}</li>
+              <li onClick={()=> navigate("/others")}>{t("others")}</li>
              
             </ul>
           </div>
@@ -31,10 +41,10 @@ export const Footer = () => {
           <div class="col-xs-6 col-md-3">
             <h6>Quick Links</h6>
             <ul class="footer-links">
-              <li onClick={() => navigate("/contact-us")}>Contact Us</li>
+              <li onClick={() => navigate("/contact-us")}>{t("contact_us")}</li>
               <li onClick={() => navigate("/bmi")}>BMI</li>
-              <li onClick={() => navigate("/dailycalo")}>Your Daily Calories</li>
-              <li onClick={() => navigate("/combo")}>Our Menu</li>
+              <li onClick={() => navigate("/dailycalo")}>{t("daily_calorie")}</li>
+              <li onClick={() => navigate("/combo")}>{t("menu")}</li>
             </ul>
           </div>
         </div>

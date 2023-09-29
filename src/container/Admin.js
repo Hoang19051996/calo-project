@@ -110,10 +110,13 @@ export const AdminPage = () => {
 
   const handleDelete = async (idDelete) => {
     dispatch(removeFood(idDelete));
+    setListFood({});
   };
 
   const handleUploadImage = (id, imgUrl) => {
     dispatch(uploadImage({ id, imgUrl }));
+    setListFood({});
+
   };
 
   React.useEffect(() => {
@@ -133,16 +136,7 @@ export const AdminPage = () => {
       <div style={{ paddingLeft: 30 }}>
         <div class="container">
           <div class="row">
-            <h3>
-              {t("title_admin")}{" "}
-              <h6>
-                {" "}
-                {t("welcome")} {username},{" "}
-                <u onClick={handleLogout} style={{ color: "red" }}>
-                  {t("logout")}
-                </u>
-              </h6>
-            </h3>
+            <br/>
 
             <Box sx={{ width: "100%", typography: "body1" }}>
               <TabContext value={value}>

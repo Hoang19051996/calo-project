@@ -168,7 +168,11 @@ export const selectJuice = (state) => state.foods.foods.filter((food) => food.ca
 export const selectFastFood = (state) => state.foods.foods.filter((food) => food.categories === "FastFood")
 export const selectOthers = (state) => state.foods.foods.filter((food) => food.categories === "Others")
 
+export const selectProtein = (state) => state.foods.foods.filter((food) => food.proteins >= 5)
 
 
 export const { setTotalCaloDaily , addCartItems , sumPrice , setProvince , setDistrict , setCommune , removeCartItems , setPrice} = foodsSlice.actions;
 export default foodsSlice.reducer;
+
+
+

@@ -5,6 +5,7 @@ import { Province } from "../component/Province";
 import { addNewOrder, removeCartItems, setPrice } from "../store/Food";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { removeItem } from "localforage";
+import { ToastContainer, toast } from "react-toastify";
 
 export const CartDetail = () => {
   const [count, setCount] = useState(1);
@@ -47,7 +48,17 @@ let month = day.getMonth();
  
     await dispatch(addNewOrder(newOrder));
     window.location.href = "/combo";
-   
+    const notify = () => toast.success('Add to cart successfully', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+      notify()
   }
 
   const handleDelete = async (list) => {
@@ -55,6 +66,8 @@ let month = day.getMonth();
     dispatch(setPrice(list.price))
 
   };
+
+
 
   return (
     <>
@@ -92,7 +105,7 @@ let month = day.getMonth();
                               <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                 <button
                                   class="btn btn-link px-2"
-                                  onClick={() => setCount(count - 1)}
+                                 
                                 >
                                   <i class="fas fa-minus"></i>
                                 </button>
@@ -108,7 +121,7 @@ let month = day.getMonth();
 
                                 <button
                                   class="btn btn-link px-2"
-                                  onClick={() => setCount(count + 1)}
+                                
                                 >
                                   <i class="fas fa-plus"></i>
                                 </button>
@@ -183,7 +196,7 @@ let month = day.getMonth();
                           type="button"
                           class="btn btn-dark btn-block btn-lg"
                           data-mdb-ripple-color="dark"
-                          onClick={toggle}
+                          onClick={toggle }
                         >
                           Register
                         </button>
@@ -198,14 +211,14 @@ let month = day.getMonth();
       </section>
 
 
-
+                                  <ToastContainer />
       <Modal isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>Please confirm</ModalHeader>
         <ModalBody>
         Are you sure you want to order these products?
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={()=> handleAddOrder()}>
+          <Button color="primary" onClick={()=> {handleAddOrder()  }}>
           Confirm 
           </Button>
           <Button color="secondary" onClick={toggle}>

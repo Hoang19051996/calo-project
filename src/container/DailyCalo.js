@@ -21,6 +21,7 @@ import { useSelect } from "@mui/base";
 import { useSelector } from "react-redux";
 import BreadCrumbs from "../component/Breadcrumbs";
 import { Footer } from "../component/Footer";
+import { Tooltip } from "@mui/material";
 
 const URL = "https://64ccc3c12eafdcdc851a433f.mockapi.io/calories";
 let nextId = 1;
@@ -154,13 +155,9 @@ function DailyCalo() {
                 />
               </div>
               <div style={{ width: 200 }}>
-                {" "}
-                <span> Burned</span>
-                <h4>0</h4>
-                <h6>Kcal</h6>
-              </div>
+             
             </div>
-
+          </div>
             <div className="dailyCalo">
               <div>
                 <span>Suggest</span>
@@ -221,11 +218,11 @@ function DailyCalo() {
         </Row>
       </Container>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Add new food into your meal</ModalHeader>
+        <ModalHeader toggle={toggle}>Add new food into your meal (100g) <Tooltip title="Some dishes such as 'Cơm', 'Phở' will be counted as 1 serving instead of 100g" ><i class="fa-solid fa-circle-info fa-sm"></i> </Tooltip></ModalHeader>
         <ModalBody>
           <Select options={options} autoFocus={true} onChange={handleChange} />
           <div className="mt-4">
-            {selected && <>The calories of dish you've selected was : <b> {selected.value} </b></>}
+            {<>The calories of dish you've selected was : <b> {selected.value} </b></>}
           </div>
         </ModalBody>
         <ModalFooter>

@@ -32,7 +32,7 @@ export const SideBarCate = () => {
             <i class="fa-solid fa-bowl-rice"></i> {" "} {" "}Others
           </li>
         </ol>
-        <h5>Wist List</h5>
+        <h5>Wish List</h5>
       </div>
     </>
   );
