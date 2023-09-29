@@ -43,7 +43,7 @@ export const SideBarAdmin = () => {
               <br></br>
             <select onChange={changeLanguage}>
         <option value="eng">English</option>
-        <option value="vie">Vietnamese</option>
+        <option value="vie">Vietnam</option>
       </select>
       </div>
           </header>
