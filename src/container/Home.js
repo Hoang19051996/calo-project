@@ -3,6 +3,13 @@ import { margin, padding, width } from "@mui/system";
 import Meat from "../Assets/Meat.jpg";
 import Rice from "../Assets/Rice.jpg";
 import BMI_1 from "../Assets/bmi/BMI_1.jpg";
+import FreshFruit from "../Assets/freshfruit.png";
+import Juice from "../Assets/juice.png";
+import FreshVegetable from "../Assets/Freshveget.png";
+import Fastfood from "../Assets/fastfood.png";
+import BlogImage1 from "../Assets/d34394fbf4521378cc6882b47eaa6d4b.jpg";
+import BlogImage2 from "../Assets/A Complete Guide to Citrus Fruits.jpg";
+
 import menu from "../Assets/bmi/Menu.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { Footer } from "../component/Footer";
@@ -46,8 +53,8 @@ export const HomePage = () => {
       </div>
       <br></br>
       <div class="container">
-        <div class="row">
-          <div class="col-md-2" onClick={() => navigate("/freshfruit")}>
+        <div class="row flex-wrap">
+          <div class="col-md-2 center" onClick={() => navigate("/freshfruit")}>
             {" "}
             <a>
               <figure>
@@ -55,7 +62,8 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Fresh Fruit"
                   width={"100%"}
-                  src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_03.png.pagespeed.ic.u1PjMNsVl2.webp "
+                  height={"210px"}
+                  src={FreshFruit}
                 />
               </figure>
               <span>
@@ -65,7 +73,7 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2" onClick={() => navigate("/juice")}>
+          <div class="col-md-2 center" onClick={() => navigate("/juice")}>
             {" "}
             <a>
               <figure>
@@ -73,7 +81,8 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Juice"
                   width={"100%"}
-                  src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_09.png.pagespeed.ic.99YN7SXxUp.webp"
+                  height={"210px"}
+                  src={Juice}
                 />
               </figure>
               <span>
@@ -83,7 +92,7 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2" onClick={() => navigate("/vegetable")}>
+          <div class="col-md-2 center" onClick={() => navigate("/vegetable")}>
             {" "}
             <a>
               <figure>
@@ -91,7 +100,8 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Fresh Vegetable"
                   width={"100%"}
-                  src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_07_1.png.pagespeed.ic.5xo_ENIkKD.webp"
+                  height={"210px"}
+                  src={FreshVegetable}
                 />
               </figure>
               <span>
@@ -102,7 +112,7 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2" onClick={() => navigate("/fast-food")}>
+          <div class="col-md-2 center" onClick={() => navigate("/fast-food")}>
             {" "}
             <a>
               <figure>
@@ -110,7 +120,8 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Fast Food"
                   width={"100%"}
-                  src="https://mageblueskytech.com/armania/media/catalog/category/xArmania_Organic_15_1.jpg.pagespeed.ic.EoBU6_sFBt.webp"
+                  height={"210px"}
+                  src={Fastfood}
                 />
               </figure>
               <span>
@@ -121,7 +132,7 @@ export const HomePage = () => {
             </a>
           </div>
 
-          <div class="col-md-2" onClick={() => navigate("/meat")}>
+          <div class="col-md-2 center" onClick={() => navigate("/meat")}>
             {" "}
             <a>
               <figure>
@@ -129,6 +140,7 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Meat"
                   width={"100%"}
+                  height={"210px"}
                   src={Meat}
                 />
               </figure>
@@ -139,7 +151,7 @@ export const HomePage = () => {
               </span>
             </a>
           </div>
-          <div class="col-md-2" onClick={() => navigate("/others")}>
+          <div class="col-md-2 center" onClick={() => navigate("/others")}>
             {" "}
             <a>
               <figure>
@@ -147,6 +159,7 @@ export const HomePage = () => {
                   style={{ borderRadius: 25 }}
                   alt="Others"
                   width={"100%"}
+                  height={"210px"}
                   src={Rice}
                 />
               </figure>
@@ -160,17 +173,14 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <div class="container" style={{paddingTop : 50 , paddingBottom : 50}}>
+      <div class="container" style={{ paddingTop: 50, paddingBottom: 50 }}>
         <div class="row">
           {" "}
-       
-          <div class="col-md-6">
-            <img src={BMI_1} width={"100%"}  />
+          <div class="col-md-6 section-01">
+            <img src={BMI_1} width={"100%"} />
           </div>
           <div className=" col-md-6 " id="section1">
-            <span style={{ fontFamily: "Loutters ,sans-serif", fontSize: 50 }}>
-              <strong>Why is BMI Important ? </strong>
-            </span>
+            <span>Why is BMI Important ?</span>
             <p>
               BMI (Body Mass Index) is important as it is widely regarded that
               your chances of having a longer and healthier life are improved if
@@ -187,7 +197,7 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <div className="section2-banner " >
+      <div className="section2-banner ">
         <div class="col-lg-5 text-home ">
           <br /> <br />
           <h1 class="display-4 text-black animated slideInRight">
@@ -209,18 +219,14 @@ export const HomePage = () => {
       </div>
 
       <br></br>
-      <div class="container" style={{paddingTop : 50 , paddingBottom : 50}}>
+      <div class="container" style={{ paddingTop: 50, paddingBottom: 50 }}>
         <div class="row">
           {" "}
-       
-         
-          <div className=" col-md-6 " id="section1" style={{paddingTop : 30}}>
-            <span style={{ fontFamily: "Loutters ,sans-serif", fontSize: 50 }}>
-              <strong>Try creating your menu</strong>
-            </span>
+          <div className=" col-md-6 " id="section1" style={{ paddingTop: 30 }}>
+            <span>Try creating your menu</span>
             <p>
-            The menu can tell you the necessary nutritional indicators, why don't you try it
-
+              The menu can tell you the necessary nutritional indicators, why
+              don't you try it
             </p>
             <p
               class="btn text-white py-2 px-4 me-3 animated slideInRight button-section"
@@ -230,9 +236,8 @@ export const HomePage = () => {
               Explore now
             </p>
           </div>
-
-          <div class="col-md-6">
-            <img src={menu} width={"100%"}  />
+          <div class="col-md-6 img-hide">
+            <img src={menu} width={"100%"} />
           </div>
         </div>
       </div>
@@ -257,10 +262,10 @@ export const HomePage = () => {
           }}
         >
           <div class="row">
-            <div className="col-md-6">
+            <div className="col-md-6" style={{ paddingTop: 10 }}>
               <div class="flex-latest-blog">
                 <div onClick={() => navigate("/blog-6-great")}>
-                  <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog3_1.jpg.pagespeed.ic.1P1YpBYA1T.webp" />
+                  <img src={BlogImage1} />
                 </div>
                 <div class="blog-post-info">
                   <h4 class="post-title">
@@ -279,10 +284,10 @@ export const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6" style={{ paddingTop: 10 }}>
               <div class="flex-latest-blog">
                 <div onClick={() => navigate("/blog-6-great")}>
-                  <img src="https://mageblueskytech.com/armania/media/rokanthemes/blog/images/t/h/xthumb-organic-blog2.jpg.pagespeed.ic.mXjRQFVqfO.webp" />
+                  <img src={BlogImage2} />
                 </div>
                 <div class="blog-post-info">
                   <h4 class="post-title">Benefits of bananas and peaches</h4>
